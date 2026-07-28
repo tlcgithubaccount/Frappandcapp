@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+  <style>
+    @media (max-width: 768px) {
+      .fc-nav { padding: 12px 20px !important; gap: 10px !important; }
+      .fc-navlinks { order: 3; width: 100%; justify-content: center; gap: 16px !important; }
+    }
+  </style>
+</helmet>
+<nav class="fc-nav" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 48px;background:#F7FAFDF2;backdrop-filter:blur(10px);border-bottom:1px solid #10284A14;font-family:'Plus Jakarta Sans',sans-serif;flex-wrap:wrap">
+  <a href="Home.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none">
+    <span style="font-family:'Outfit',sans-serif;font-weight:800;font-size:22px;color:#10284A;letter-spacing:-0.01em">Frapp <span style="color:#EA7424">&amp;</span> Capp</span>
+  </a>
+  <div class="fc-navlinks" style="display:flex;align-items:center;gap:28px;flex-wrap:wrap">
+    <a href="Home.dc.html" style="text-decoration:none;font-weight:600;font-size:15px;color:{{ colorHome }};background:{{ bgHome }};padding:6px 12px 8px;border-radius:8px;border-bottom:2px solid {{ underlineHome }}">Home</a>
+    <a href="Menu.dc.html" style="text-decoration:none;font-weight:600;font-size:15px;color:{{ colorMenu }};background:{{ bgMenu }};padding:6px 12px 8px;border-radius:8px;border-bottom:2px solid {{ underlineMenu }}">Menu</a>
+    <a href="Shop Beans.dc.html" style="text-decoration:none;font-weight:600;font-size:15px;color:{{ colorShop }};background:{{ bgShop }};padding:6px 12px 8px;border-radius:8px;border-bottom:2px solid {{ underlineShop }}">Shop Beans</a>
+    <a href="Our Story.dc.html" style="text-decoration:none;font-weight:600;font-size:15px;color:{{ colorStory }};background:{{ bgStory }};padding:6px 12px 8px;border-radius:8px;border-bottom:2px solid {{ underlineStory }}">Our Story</a>
+    <a href="Visit.dc.html" style="text-decoration:none;font-weight:600;font-size:15px;color:{{ colorVisit }};background:{{ bgVisit }};padding:6px 12px 8px;border-radius:8px;border-bottom:2px solid {{ underlineVisit }}">Visit</a>
+    <a href="Careers.dc.html" style="text-decoration:none;font-weight:600;font-size:15px;color:{{ colorCareers }};background:{{ bgCareers }};padding:6px 12px 8px;border-radius:8px;border-bottom:2px solid {{ underlineCareers }}">Careers</a>
+  </div>
+  <a href="Visit.dc.html" style="text-decoration:none;background:#EA7424;color:#F7FAFD;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;padding:11px 22px;border-radius:999px;white-space:nowrap">Find us →</a>
+</nav>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:80},&quot;current&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Home&quot;,&quot;options&quot;:[&quot;Home&quot;,&quot;Menu&quot;,&quot;Shop&quot;,&quot;Story&quot;,&quot;Visit&quot;,&quot;Careers&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const current = this.props.current || 'Home';
+    const active = '#10284A';
+    const inactive = '#10284A99';
+    const line = (name) => current === name ? '#EA7424' : 'transparent';
+    const col = (name) => current === name ? active : inactive;
+    const bg = (name) => current === name ? '#EA74241A' : 'transparent';
+    return {
+      colorHome: col('Home'), underlineHome: line('Home'), bgHome: bg('Home'),
+      colorMenu: col('Menu'), underlineMenu: line('Menu'), bgMenu: bg('Menu'),
+      colorShop: col('Shop'), underlineShop: line('Shop'), bgShop: bg('Shop'),
+      colorStory: col('Story'), underlineStory: line('Story'), bgStory: bg('Story'),
+      colorVisit: col('Visit'), underlineVisit: line('Visit'), bgVisit: bg('Visit'),
+      colorCareers: col('Careers'), underlineCareers: line('Careers'), bgCareers: bg('Careers'),
+    };
+  }
+}
+
+</script>
+</body>
+</html>

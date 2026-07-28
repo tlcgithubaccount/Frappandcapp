@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap">
+  <style>
+    @media (max-width: 768px) {
+      .fc-foot { padding: 48px 24px 28px !important; }
+      .fc-foot-grid { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
+      .fc-foot-bottom { flex-direction: column !important; }
+    }
+    @media (max-width: 480px) {
+      .fc-foot-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</helmet>
+<footer class="fc-foot" style="background:#10284A;color:#F7FAFD;font-family:'Plus Jakarta Sans',sans-serif;padding:64px 48px 32px">
+  <div class="fc-foot-grid" style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;max-width:1344px;margin:0 auto;padding-bottom:48px;border-bottom:1px solid #F7FAFD24">
+    <div>
+      <div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:24px;letter-spacing:-0.01em;margin-bottom:12px">Frapp <span style="color:#EA7424">&amp;</span> Capp</div>
+      <p style="font-size:15px;line-height:1.6;color:#F7FAFDB3;max-width:280px;margin:0">Specialty coffee, roasted and poured by a team building real careers. An initiative of TLC Disability Services.</p>
+    </div>
+    <div>
+      <div style="font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#EA7424;margin-bottom:16px">Explore</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <a href="Menu.dc.html" style="color:#F7FAFDE0;text-decoration:none;font-size:15px">Menu</a>
+        <a href="Shop Beans.dc.html" style="color:#F7FAFDE0;text-decoration:none;font-size:15px">Shop Beans</a>
+        <a href="Our Story.dc.html" style="color:#F7FAFDE0;text-decoration:none;font-size:15px">Our Story</a>
+        <a href="Careers.dc.html" style="color:#F7FAFDE0;text-decoration:none;font-size:15px">Careers</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#EA7424;margin-bottom:16px">Visit</div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:15px;color:#F7FAFDE0">
+        <span>1 West Terrace</span>
+        <span>Bankstown NSW 2200</span>
+        <span>Mon–Fri, 9am–3pm</span>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#EA7424;margin-bottom:16px">Say hello</div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:15px;color:#F7FAFDE0">
+        <span>tlcdisability@gmail.com</span>
+      </div>
+    </div>
+  </div>
+  <div class="fc-foot-bottom" style="max-width:1344px;margin:0 auto;padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#F7FAFD80">
+    <span>© 2026 Frapp &amp; Capp · A social enterprise of TLC Disability Services</span>
+    <span>Every cup funds meaningful employment</span>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:360}}"></script>
+</body>
+</html>
