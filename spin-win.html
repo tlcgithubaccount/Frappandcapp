@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Spin & Win — Frapp & Capp</title>
-<meta name="description" content="Spin the wheel for a chance to win a prize at Frapp &amp; Capp. No app or sign-up needed — just spin and show the barista.">
-<meta property="og:title" content="Spin & Win — Frapp & Capp">
+<title>Spin & Win | Frapp & Capp</title>
+<meta name="description" content="Spin the wheel for a chance to win a prize at Frapp &amp; Capp. No app or sign-up needed, just spin and show the barista.">
+<meta property="og:title" content="Spin & Win | Frapp & Capp">
 <meta property="og:description" content="Spin the wheel for a chance to win a prize at Frapp & Capp.">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2310284A'/%3E%3Ccircle cx='50' cy='50' r='26' fill='%23EA7424'/%3E%3C/svg%3E">
@@ -265,16 +265,16 @@
 
   <div class="result" id="result">
     <div class="prize-icon" id="prizeIcon">🎁</div>
-    <h2 id="prizeName">—</h2>
-    <p id="prizeMsg">—</p>
+    <h2 id="prizeName"></h2>
+    <p id="prizeMsg"></p>
     <div class="redeem-box" id="redeemBox">
-      <span>Code <b id="redeemCode">—</b></span>
-      <span>Valid <b id="redeemDate">—</b></span>
+      <span>Code <b id="redeemCode"></b></span>
+      <span>Valid <b id="redeemDate"></b></span>
     </div>
     <p class="again-note" id="againNote"></p>
 
     <div class="mini-ask" id="firstVisitAsk">
-      <p class="mini-ask-q">Quick one — first time at Frapp &amp; Capp?</p>
+      <p class="mini-ask-q">Quick one: first time at Frapp &amp; Capp?</p>
       <div class="mini-ask-btns">
         <button type="button" class="mini-btn" data-first="yes">First time!</button>
         <button type="button" class="mini-btn" data-first="no">I'm a regular</button>
@@ -282,7 +282,7 @@
     </div>
 
     <div class="mini-ask" id="notifyAsk">
-      <p class="mini-ask-q">Want a heads up when seasonal drinks &amp; new prizes drop? Totally optional — we'll open a quick email for you to send.</p>
+      <p class="mini-ask-q">Want a heads up when seasonal drinks &amp; new prizes drop? Totally optional. We'll open a quick email for you to send.</p>
       <form class="notify-form" id="notifyForm">
         <input type="email" id="notifyEmail" placeholder="you@email.com" required>
         <button type="submit" class="mini-btn mini-btn-primary">Notify me</button>
@@ -299,7 +299,7 @@
       <div class="step">
         <div class="step-num">1</div>
         <b>Tap SPIN</b>
-        <p>Give the wheel a whirl — one spin per customer.</p>
+        <p>Give the wheel a whirl, one spin per customer.</p>
       </div>
       <div class="step">
         <div class="step-num">2</div>
@@ -316,7 +316,7 @@
 
   <a class="back-link" href="visit.html">Find our Bankstown café →</a>
 
-  <p class="mission-line">🎉 Every cup — and every spin — funds meaningful employment for our team.</p>
+  <p class="mission-line">🎉 Every cup and every spin funds meaningful employment for our team.</p>
 
   <p class="disclaimer">Valid with a coffee order, one per customer per day. Prizes cannot be exchanged for cash. Show the winning screen to our team to redeem before you leave. Frapp &amp; Capp reserves the right to vary this promotion.</p>
 </main>
@@ -423,7 +423,7 @@
     resultEl.classList.add('show');
     document.getElementById('prizeIcon').textContent = prize.win ? (prize.icon || '🎁') : '💛';
     document.getElementById('prizeName').textContent = prize.win ? prize.name : 'Thanks for Spinning!';
-    document.getElementById('prizeMsg').textContent = prize.win ? prize.msg : 'No prize this round — but every cup here funds real, meaningful jobs for our team. Come back tomorrow for another spin!';
+    document.getElementById('prizeMsg').textContent = prize.win ? prize.msg : 'No prize this round, but every cup here funds real, meaningful jobs for our team. Come back tomorrow for another spin!';
     var redeemBox = document.getElementById('redeemBox');
     if (prize.win){
       redeemBox.style.display = 'flex';
@@ -433,7 +433,7 @@
       redeemBox.style.display = 'none';
     }
     document.getElementById('againNote').textContent = isReplay
-      ? 'You already spun today — here’s what you won. See you tomorrow for another spin!'
+      ? 'You already spun today. Here’s what you won. See you tomorrow for another spin!'
       : '';
     liveRegion.textContent = (prize.win ? prize.name : 'No prize this time') + '. ' + (prize.win ? prize.msg : '');
   }
@@ -486,10 +486,10 @@
     if (!email) return;
     try { localStorage.setItem(NOTIFY_KEY, JSON.stringify({ date: todayStr(), email: email })); } catch(e){}
     trackEvent('spin_win_notify_optin', {});
-    var subject = encodeURIComponent('Spin & Win — notify me');
+    var subject = encodeURIComponent('Spin & Win: notify me');
     var body = encodeURIComponent('Please notify me about seasonal drinks and new prizes.\n\nEmail: ' + email + '\nDate: ' + todayStr());
     window.location.href = 'mailto:tlcdisability@gmail.com?subject=' + subject + '&body=' + body;
-    notifyAsk.innerHTML = '<p class="mini-thanks">Almost done — check your email app and hit send. 💛</p>';
+    notifyAsk.innerHTML = '<p class="mini-thanks">Almost done! Check your email app and hit send. 💛</p>';
   });
 
   document.getElementById('notifySkip').addEventListener('click', function(){
