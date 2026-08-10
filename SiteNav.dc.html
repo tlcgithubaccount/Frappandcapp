@@ -28,12 +28,13 @@
     <a href="our-story.html" style="text-decoration:none;font-weight:600;font-size:15px;color:{{ colorStory }};background:{{ bgStory }};padding:6px 12px 8px;border-radius:8px;border-bottom:2px solid {{ underlineStory }}">Our Story</a>
     <a href="visit.html" style="text-decoration:none;font-weight:600;font-size:15px;color:{{ colorVisit }};background:{{ bgVisit }};padding:6px 12px 8px;border-radius:8px;border-bottom:2px solid {{ underlineVisit }}">Visit</a>
     <a href="careers.html" style="text-decoration:none;font-weight:600;font-size:15px;color:{{ colorCareers }};background:{{ bgCareers }};padding:6px 12px 8px;border-radius:8px;border-bottom:2px solid {{ underlineCareers }}">Careers</a>
+    <a href="spin-win.html" style="text-decoration:none;font-weight:700;font-size:15px;color:{{ colorWin }};background:{{ bgWin }};padding:6px 12px 8px;border-radius:8px;border-bottom:2px solid {{ underlineWin }}">🎉 Spin &amp; Win</a>
   </div>
   <a href="visit.html" style="text-decoration:none;background:#EA7424;color:#F7FAFD;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;padding:11px 22px;border-radius:999px;white-space:nowrap">Find us →</a>
 </nav>
 
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:80},&quot;current&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Home&quot;,&quot;options&quot;:[&quot;Home&quot;,&quot;Menu&quot;,&quot;Shop&quot;,&quot;Story&quot;,&quot;Visit&quot;,&quot;Careers&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:80},&quot;current&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Home&quot;,&quot;options&quot;:[&quot;Home&quot;,&quot;Menu&quot;,&quot;Shop&quot;,&quot;Story&quot;,&quot;Visit&quot;,&quot;Careers&quot;,&quot;Win&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
   renderVals() {
     const current = this.props.current || 'Home';
@@ -49,6 +50,7 @@ class Component extends DCLogic {
       colorStory: col('Story'), underlineStory: line('Story'), bgStory: bg('Story'),
       colorVisit: col('Visit'), underlineVisit: line('Visit'), bgVisit: bg('Visit'),
       colorCareers: col('Careers'), underlineCareers: line('Careers'), bgCareers: bg('Careers'),
+      colorWin: '#EA7424', underlineWin: line('Win'), bgWin: current === 'Win' ? '#EA74241A' : '#EA74240F',
     };
   }
 }

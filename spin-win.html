@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spin & Win — Frapp & Capp</title>
+<meta name="description" content="Spin the wheel for a chance to win a prize at Frapp &amp; Capp. No app or sign-up needed — just spin and show the barista.">
+<meta property="og:title" content="Spin & Win — Frapp & Capp">
+<meta property="og:description" content="Spin the wheel for a chance to win a prize at Frapp & Capp.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2310284A'/%3E%3Ccircle cx='50' cy='50' r='26' fill='%23EA7424'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --navy:#10284A;
+    --orange:#EA7424;
+    --bg:#F7FAFD;
+    --cream:#EDE9DE;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:var(--bg);
+    font-family:'Plus Jakarta Sans',sans-serif;
+    color:var(--navy);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+  }
+  a{color:inherit}
+
+  /* ---- header ---- */
+  header{
+    display:flex;align-items:center;justify-content:center;
+    padding:18px 24px;
+  }
+  header a{
+    display:flex;align-items:center;gap:8px;text-decoration:none;
+    font-family:'Outfit',sans-serif;font-weight:800;font-size:20px;letter-spacing:-0.01em;
+  }
+  header a span{color:var(--orange)}
+
+  /* ---- main ---- */
+  main{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:8px 20px 48px;
+    text-align:center;
+  }
+  .eyebrow{
+    font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--orange);margin-bottom:8px;
+  }
+  h1{
+    font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(28px,7vw,42px);
+    letter-spacing:-0.01em;margin-bottom:10px;
+  }
+  .sub{
+    max-width:420px;color:#10284Ab3;font-size:15.5px;line-height:1.6;margin-bottom:28px;
+  }
+
+  /* ---- wheel ---- */
+  .wheel-wrap{
+    position:relative;
+    width:min(86vw,340px);
+    aspect-ratio:1/1;
+    margin-bottom:28px;
+  }
+  .pointer{
+    position:absolute;top:-6px;left:50%;transform:translateX(-50%);
+    width:0;height:0;
+    border-left:14px solid transparent;
+    border-right:14px solid transparent;
+    border-top:24px solid var(--navy);
+    z-index:3;
+    filter:drop-shadow(0 2px 2px rgba(0,0,0,0.25));
+  }
+  .wheel-ring{
+    position:absolute;inset:0;
+    border-radius:50%;
+    background:var(--navy);
+    padding:10px;
+    box-shadow:0 12px 28px rgba(16,40,74,0.25);
+  }
+  #wheel{
+    display:block;width:100%;height:100%;
+    border-radius:50%;
+    transition:transform 4.5s cubic-bezier(0.15,0.68,0.15,1);
+    background:#fff;
+  }
+  .hub{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:26%;height:26%;
+    border-radius:50%;
+    background:var(--orange);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Outfit',sans-serif;font-weight:800;
+    font-size:clamp(13px,3.4vw,16px);
+    letter-spacing:0.02em;
+    border:4px solid #fff;
+    cursor:pointer;
+    z-index:2;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    user-select:none;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .hub:disabled,.hub[data-disabled="true"]{
+    background:#10284A55;cursor:default;
+  }
+  .hub:active:not([data-disabled="true"]){transform:translate(-50%,-50%) scale(0.96)}
+
+  /* ---- result panel ---- */
+  .result{
+    display:none;
+    width:100%;max-width:420px;
+    background:#fff;
+    border:1px solid #10284A1a;
+    border-radius:18px;
+    padding:26px 24px;
+    box-shadow:0 8px 24px rgba(16,40,74,0.08);
+  }
+  .result.show{display:block}
+  .result .prize-icon{font-size:38px;margin-bottom:6px}
+  .result h2{
+    font-family:'Outfit',sans-serif;font-weight:800;font-size:22px;margin-bottom:8px;
+  }
+  .result p{font-size:14.5px;line-height:1.6;color:#10284Ab3;margin-bottom:14px}
+  .redeem-box{
+    background:var(--bg);
+    border:1px dashed #10284A33;
+    border-radius:12px;
+    padding:12px 14px;
+    font-size:13px;
+    color:#10284A99;
+    display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  }
+  .redeem-box b{color:var(--navy)}
+
+  .again-note{
+    margin-top:16px;font-size:13px;color:#10284A80;
+  }
+
+  .steps{
+    display:flex;gap:20px;flex-wrap:wrap;justify-content:center;
+    max-width:480px;margin-top:36px;padding-top:28px;border-top:1px solid #10284A14;
+  }
+  .step{width:130px;font-size:13px;color:#10284A99;line-height:1.5}
+  .step b{display:block;color:var(--navy);font-family:'Outfit',sans-serif;font-size:15px;margin-bottom:4px}
+
+  .back-link{
+    margin-top:32px;font-size:14px;font-weight:600;color:var(--navy);text-decoration:none;
+    border-bottom:2px solid var(--orange);padding-bottom:2px;
+  }
+
+  footer{
+    text-align:center;padding:20px;font-size:12.5px;color:#10284A66;
+  }
+
+  [aria-live]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html">Frapp <span>&amp;</span> Capp</a>
+</header>
+
+<main>
+  <div class="eyebrow">Coffee With a Cause</div>
+  <h1>Spin &amp; Win 🎉</h1>
+  <p class="sub">Tap the wheel for a free chance to win. No app, no sign-up — just show your barista the screen to redeem with today's purchase.</p>
+
+  <div class="wheel-wrap">
+    <div class="pointer" aria-hidden="true"></div>
+    <div class="wheel-ring">
+      <svg id="wheel" viewBox="0 0 400 400"></svg>
+    </div>
+    <button class="hub" id="spinBtn" type="button">SPIN</button>
+  </div>
+
+  <div class="result" id="result">
+    <div class="prize-icon" id="prizeIcon">🎁</div>
+    <h2 id="prizeName">—</h2>
+    <p id="prizeMsg">—</p>
+    <div class="redeem-box" id="redeemBox">
+      <span>Code <b id="redeemCode">—</b></span>
+      <span>Valid <b id="redeemDate">—</b></span>
+    </div>
+    <p class="again-note" id="againNote"></p>
+  </div>
+
+  <div role="status" aria-live="polite" id="liveRegion"></div>
+
+  <div class="steps">
+    <div class="step"><b>1. Spin</b>Tap the wheel and watch it go.</div>
+    <div class="step"><b>2. See your prize</b>Every spin wins something, most of the time.</div>
+    <div class="step"><b>3. Show &amp; redeem</b>Show this screen to our barista with today's purchase.</div>
+  </div>
+
+  <a class="back-link" href="visit.html">Find our Bankstown café →</a>
+</main>
+
+<footer>One spin per customer per day &middot; Prize must be redeemed same day in-store</footer>
+
+<script>
+(function(){
+  var cx = 200, cy = 200, r = 188;
+
+  // Matches the odds table in the Spin & Win promo proposal.
+  var prizes = [
+    { key:'upgrade', label:'Size\nUpgrade',   pct:22.4, color:'#EA7424', text:'#fff', icon:'🥤', win:true,
+      name:'Size Upgrade!', msg:'Show this screen to our barista for a free size upgrade (S → L) with your order today.' },
+    { key:'again1',  label:'Try\nAgain',       pct:11.2, color:'#EDE9DE', text:'#10284A', win:false },
+    { key:'order10', label:'10% Off\nThis Order', pct:13.8, color:'#10284A', text:'#fff', icon:'☕', win:true,
+      name:'10% Off This Order!', msg:'Show this screen to our barista for 10% off the order you’re about to make.' },
+    { key:'again2',  label:'Try\nAgain',       pct:11.2, color:'#EDE9DE', text:'#10284A', win:false },
+    { key:'biscuit', label:'Free\nBiscuit',    pct:12.1, color:'#F2955A', text:'#fff', icon:'🍪', win:true,
+      name:'Free Biscuit!', msg:'Show this screen to our barista to claim a free biscuit with your purchase today.' },
+    { key:'again3',  label:'Try\nAgain',       pct:11.2, color:'#EDE9DE', text:'#10284A', win:false },
+    { key:'next10',  label:'10% Off\nNext Visit', pct:13.8, color:'#1B3A63', text:'#fff', icon:'🎟️', win:true,
+      name:'10% Off Your Next Visit!', msg:'Show this screen next time you order for 10% off that visit.' },
+    { key:'coffee',  label:'Free\nCoffee',     pct:4.3,  color:'#C85A12', text:'#fff', icon:'✨', win:true,
+      name:'Free Coffee!', msg:'Show this screen to our barista to claim a free coffee with your purchase today.' }
+  ];
+
+  var totalPct = prizes.reduce(function(s,p){ return s + p.pct; }, 0);
+  var angle = 0;
+  prizes.forEach(function(p){
+    p.start = angle;
+    p.width = (p.pct / totalPct) * 360;
+    p.end = p.start + p.width;
+    angle = p.end;
+  });
+
+  function polar(cx, cy, r, deg){
+    var rad = (deg - 90) * Math.PI / 180; // 0deg = 12 o'clock
+    return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) };
+  }
+
+  var svg = document.getElementById('wheel');
+  var ns = 'http://www.w3.org/2000/svg';
+
+  prizes.forEach(function(p){
+    var p0 = polar(cx, cy, r, p.start);
+    var p1 = polar(cx, cy, r, p.end);
+    var largeArc = p.width > 180 ? 1 : 0;
+    var path = document.createElementNS(ns, 'path');
+    path.setAttribute('d', 'M '+cx+' '+cy+' L '+p0.x+' '+p0.y+' A '+r+' '+r+' 0 '+largeArc+' 1 '+p1.x+' '+p1.y+' Z');
+    path.setAttribute('fill', p.color);
+    path.setAttribute('stroke', '#fff');
+    path.setAttribute('stroke-width', '2');
+    svg.appendChild(path);
+
+    var mid = p.start + p.width / 2;
+    var textGroup = document.createElementNS(ns, 'text');
+    textGroup.setAttribute('x', cx);
+    textGroup.setAttribute('y', cy - r + 34);
+    textGroup.setAttribute('text-anchor', 'middle');
+    textGroup.setAttribute('transform', 'rotate('+mid+' '+cx+' '+cy+')');
+    textGroup.setAttribute('fill', p.text);
+    textGroup.setAttribute('font-family', "'Plus Jakarta Sans', sans-serif");
+    textGroup.setAttribute('font-weight', '700');
+    textGroup.setAttribute('font-size', p.pct < 8 ? '11' : '13');
+    p.label.split('\n').forEach(function(line, i){
+      var tspan = document.createElementNS(ns, 'tspan');
+      tspan.setAttribute('x', cx);
+      tspan.setAttribute('dy', i === 0 ? '0' : '14');
+      tspan.textContent = line;
+      textGroup.appendChild(tspan);
+    });
+    svg.appendChild(textGroup);
+  });
+
+  var spinBtn = document.getElementById('spinBtn');
+  var resultEl = document.getElementById('result');
+  var liveRegion = document.getElementById('liveRegion');
+  var currentRotation = 0;
+  var STORAGE_KEY = 'fc_spin_win';
+
+  function todayStr(){
+    return new Date().toISOString().slice(0,10);
+  }
+
+  function randomCode(){
+    return Math.random().toString(36).slice(2,6).toUpperCase();
+  }
+
+  function showResult(prize, code, isReplay){
+    resultEl.classList.add('show');
+    document.getElementById('prizeIcon').textContent = prize.win ? (prize.icon || '🎁') : '🍀';
+    document.getElementById('prizeName').textContent = prize.win ? prize.name : 'So Close!';
+    document.getElementById('prizeMsg').textContent = prize.win ? prize.msg : 'No prize this time — but thanks for spinning! Come back tomorrow for another shot.';
+    var redeemBox = document.getElementById('redeemBox');
+    if (prize.win){
+      redeemBox.style.display = 'flex';
+      document.getElementById('redeemCode').textContent = code;
+      document.getElementById('redeemDate').textContent = 'today only';
+    } else {
+      redeemBox.style.display = 'none';
+    }
+    document.getElementById('againNote').textContent = isReplay
+      ? 'You already spun today — here’s what you won. See you tomorrow for another spin!'
+      : '';
+    liveRegion.textContent = (prize.win ? prize.name : 'No prize this time') + '. ' + (prize.win ? prize.msg : '');
+  }
+
+  function lockSpinButton(){
+    spinBtn.setAttribute('data-disabled', 'true');
+    spinBtn.textContent = 'DONE';
+  }
+
+  function pickPrize(){
+    var landing = Math.random() * 360;
+    var chosen = prizes[prizes.length - 1];
+    for (var i = 0; i < prizes.length; i++){
+      if (landing >= prizes[i].start && landing < prizes[i].end){ chosen = prizes[i]; break; }
+    }
+    return { prize: chosen, landing: landing };
+  }
+
+  function spin(){
+    if (spinBtn.getAttribute('data-disabled') === 'true') return;
+    spinBtn.setAttribute('data-disabled', 'true');
+
+    var picked = pickPrize();
+    var extraTurns = 5 + Math.floor(Math.random() * 2); // 5-6 full turns
+    var target = extraTurns * 360 + (360 - picked.landing);
+    currentRotation += target;
+    svg.style.transform = 'rotate('+currentRotation+'deg)';
+
+    setTimeout(function(){
+      var code = picked.prize.win ? randomCode() : null;
+      showResult(picked.prize, code, false);
+      lockSpinButton();
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          date: todayStr(),
+          prizeKey: picked.prize.key,
+          code: code,
+          rotation: currentRotation
+        }));
+      } catch(e){}
+    }, 4600);
+  }
+
+  spinBtn.addEventListener('click', spin);
+
+  // Restore today's result if the visitor already spun.
+  try {
+    var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+    if (saved && saved.date === todayStr()){
+      var prize = prizes.filter(function(p){ return p.key === saved.prizeKey; })[0];
+      if (prize){
+        currentRotation = saved.rotation || 0;
+        svg.style.transition = 'none';
+        svg.style.transform = 'rotate('+currentRotation+'deg)';
+        showResult(prize, saved.code, true);
+        lockSpinButton();
+      }
+    }
+  } catch(e){}
+})();
+</script>
+
+</body>
+</html>
