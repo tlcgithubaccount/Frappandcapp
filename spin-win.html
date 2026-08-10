@@ -159,6 +159,38 @@
     margin-top:16px;font-size:13px;color:var(--mocha);
   }
 
+  .mini-ask{
+    display:none;
+    margin-top:18px;padding-top:18px;
+    border-top:1px solid #33210F14;
+    text-align:left;
+  }
+  .mini-ask.show{display:block}
+  .mini-ask-q{font-size:13.5px;font-weight:600;color:var(--espresso);margin-bottom:10px;line-height:1.5}
+  .mini-ask-btns{display:flex;gap:8px;flex-wrap:wrap}
+  .mini-btn{
+    appearance:none;cursor:pointer;
+    font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:13px;
+    background:var(--cream);color:var(--espresso);
+    border:1px solid #33210F26;border-radius:999px;
+    padding:9px 16px;
+  }
+  .mini-btn:hover{background:#F2E6C9}
+  .mini-btn-primary{background:var(--orange);color:#fff;border-color:var(--orange)}
+  .notify-form{display:flex;gap:8px;flex-wrap:wrap}
+  .notify-form input{
+    flex:1;min-width:160px;
+    font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;
+    padding:9px 12px;border-radius:999px;border:1px solid #33210F26;
+    background:#fff;color:var(--espresso);
+  }
+  .mini-skip{
+    appearance:none;background:none;border:none;cursor:pointer;
+    font-family:'Plus Jakarta Sans',sans-serif;font-size:12.5px;color:var(--mocha);
+    text-decoration:underline;margin-top:8px;padding:0;
+  }
+  .mini-thanks{font-size:13px;color:var(--mocha)}
+
   /* ---- how it works ---- */
   .how{
     width:100%;max-width:760px;margin-top:20px;
@@ -194,8 +226,12 @@
     border-bottom:2px solid var(--orange);padding-bottom:2px;
   }
 
+  .mission-line{
+    max-width:420px;margin-top:28px;font-size:14px;font-weight:600;line-height:1.6;color:var(--espresso);
+  }
+
   .disclaimer{
-    max-width:560px;margin-top:32px;font-size:12.5px;line-height:1.7;color:var(--mocha);opacity:0.85;
+    max-width:560px;margin-top:14px;font-size:12.5px;line-height:1.7;color:var(--mocha);opacity:0.85;
   }
 
   [aria-live]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
@@ -236,6 +272,23 @@
       <span>Valid <b id="redeemDate">—</b></span>
     </div>
     <p class="again-note" id="againNote"></p>
+
+    <div class="mini-ask" id="firstVisitAsk">
+      <p class="mini-ask-q">Quick one — first time at Frapp &amp; Capp?</p>
+      <div class="mini-ask-btns">
+        <button type="button" class="mini-btn" data-first="yes">First time!</button>
+        <button type="button" class="mini-btn" data-first="no">I'm a regular</button>
+      </div>
+    </div>
+
+    <div class="mini-ask" id="notifyAsk">
+      <p class="mini-ask-q">Want a heads up when seasonal drinks &amp; new prizes drop? Totally optional — we'll open a quick email for you to send.</p>
+      <form class="notify-form" id="notifyForm">
+        <input type="email" id="notifyEmail" placeholder="you@email.com" required>
+        <button type="submit" class="mini-btn mini-btn-primary">Notify me</button>
+      </form>
+      <button type="button" class="mini-skip" id="notifySkip">No thanks</button>
+    </div>
   </div>
 
   <div role="status" aria-live="polite" id="liveRegion"></div>
@@ -263,6 +316,8 @@
 
   <a class="back-link" href="visit.html">Find our Bankstown café →</a>
 
+  <p class="mission-line">🎉 Every cup — and every spin — funds meaningful employment for our team.</p>
+
   <p class="disclaimer">Valid with a coffee order, one per customer per day. Prizes cannot be exchanged for cash. Show the winning screen to our team to redeem before you leave. Frapp &amp; Capp reserves the right to vary this promotion.</p>
 </main>
 
@@ -274,13 +329,13 @@
   var prizes = [
     { key:'upgrade', label:'Size Up\nS → L',   pct:22.4, color:'#8AD0EA', text:'#33210F', icon:'⬆️', win:true,
       name:'Size Upgrade!', msg:'Show this screen to our barista for a free size upgrade (S → L) with your order today.' },
-    { key:'again1',  label:'Better\nLuck',       pct:11.2, color:'#DCC9A3', text:'#33210F', icon:'🤎', win:false },
+    { key:'again1',  label:'Thank\nYou',       pct:11.2, color:'#DCC9A3', text:'#33210F', icon:'💛', win:false },
     { key:'order10', label:'10%\nOff', pct:13.8, color:'#F4C24C', text:'#33210F', icon:'💰', win:true,
       name:'10% Off This Order!', msg:'Show this screen to our barista for 10% off the order you’re about to make.' },
-    { key:'again2',  label:'Better\nLuck',       pct:11.2, color:'#DCC9A3', text:'#33210F', icon:'🤎', win:false },
+    { key:'again2',  label:'Thank\nYou',       pct:11.2, color:'#DCC9A3', text:'#33210F', icon:'💛', win:false },
     { key:'biscuit', label:'Free\nBiscuit',    pct:12.1, color:'#EF9B44', text:'#33210F', icon:'🍪', win:true,
       name:'Free Biscuit!', msg:'Show this screen to our barista to claim a free biscuit with your purchase today.' },
-    { key:'again3',  label:'Better\nLuck',       pct:11.2, color:'#DCC9A3', text:'#33210F', icon:'🤎', win:false },
+    { key:'again3',  label:'Thank\nYou',       pct:11.2, color:'#DCC9A3', text:'#33210F', icon:'💛', win:false },
     { key:'next10',  label:'Next Visit\n10% Off', pct:13.8, color:'#8AD0EA', text:'#33210F', icon:'💛', win:true,
       name:'10% Off Your Next Visit!', msg:'Show this screen next time you order for 10% off that visit.' },
     { key:'coffee',  label:'FREE\nCOFFEE',     pct:4.3,  color:'#DC7A2A', text:'#33210F', icon:'🎉', win:true,
@@ -366,9 +421,9 @@
 
   function showResult(prize, code, isReplay){
     resultEl.classList.add('show');
-    document.getElementById('prizeIcon').textContent = prize.win ? (prize.icon || '🎁') : '🍀';
-    document.getElementById('prizeName').textContent = prize.win ? prize.name : 'So Close!';
-    document.getElementById('prizeMsg').textContent = prize.win ? prize.msg : 'No prize this time — but thanks for spinning! Come back tomorrow for another shot.';
+    document.getElementById('prizeIcon').textContent = prize.win ? (prize.icon || '🎁') : '💛';
+    document.getElementById('prizeName').textContent = prize.win ? prize.name : 'Thanks for Spinning!';
+    document.getElementById('prizeMsg').textContent = prize.win ? prize.msg : 'No prize this round — but every cup here funds real, meaningful jobs for our team. Come back tomorrow for another spin!';
     var redeemBox = document.getElementById('redeemBox');
     if (prize.win){
       redeemBox.style.display = 'flex';
@@ -387,6 +442,60 @@
     spinBtn.setAttribute('data-disabled', 'true');
     spinBtn.textContent = 'DONE';
   }
+
+  // ---- optional, non-blocking post-spin asks ----
+  var FIRST_VISIT_KEY = 'fc_first_visit';
+  var NOTIFY_KEY = 'fc_notify_optin';
+
+  function trackEvent(name, params){
+    try { if (typeof gtag === 'function') gtag('event', name, params || {}); } catch(e){}
+  }
+
+  function answeredToday(key){
+    try {
+      var saved = JSON.parse(localStorage.getItem(key) || 'null');
+      return !!(saved && saved.date === todayStr());
+    } catch(e){ return false; }
+  }
+
+  var firstVisitAsk = document.getElementById('firstVisitAsk');
+  var notifyAsk = document.getElementById('notifyAsk');
+
+  function showFirstVisitAsk(){
+    if (answeredToday(FIRST_VISIT_KEY)) return;
+    firstVisitAsk.classList.add('show');
+  }
+
+  function showNotifyAsk(){
+    if (answeredToday(NOTIFY_KEY)) return;
+    notifyAsk.classList.add('show');
+  }
+
+  Array.prototype.forEach.call(firstVisitAsk.querySelectorAll('[data-first]'), function(btn){
+    btn.addEventListener('click', function(){
+      var isFirst = btn.getAttribute('data-first') === 'yes';
+      try { localStorage.setItem(FIRST_VISIT_KEY, JSON.stringify({ date: todayStr(), isFirst: isFirst })); } catch(e){}
+      trackEvent('spin_win_first_visit', { is_first_visit: isFirst });
+      firstVisitAsk.innerHTML = '<p class="mini-thanks">Thanks! ' + (isFirst ? 'Welcome to Frapp &amp; Capp 👋' : 'Great to see you again 🎉') + '</p>';
+    });
+  });
+
+  document.getElementById('notifyForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = document.getElementById('notifyEmail').value.trim();
+    if (!email) return;
+    try { localStorage.setItem(NOTIFY_KEY, JSON.stringify({ date: todayStr(), email: email })); } catch(e){}
+    trackEvent('spin_win_notify_optin', {});
+    var subject = encodeURIComponent('Spin & Win — notify me');
+    var body = encodeURIComponent('Please notify me about seasonal drinks and new prizes.\n\nEmail: ' + email + '\nDate: ' + todayStr());
+    window.location.href = 'mailto:tlcdisability@gmail.com?subject=' + subject + '&body=' + body;
+    notifyAsk.innerHTML = '<p class="mini-thanks">Almost done — check your email app and hit send. 💛</p>';
+  });
+
+  document.getElementById('notifySkip').addEventListener('click', function(){
+    try { localStorage.setItem(NOTIFY_KEY, JSON.stringify({ date: todayStr(), skipped: true })); } catch(e){}
+    notifyAsk.classList.remove('show');
+  });
 
   function pickPrize(){
     var landing = Math.random() * 360;
@@ -411,6 +520,8 @@
       var code = picked.prize.win ? randomCode() : null;
       showResult(picked.prize, code, false);
       lockSpinButton();
+      showFirstVisitAsk();
+      showNotifyAsk();
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify({
           date: todayStr(),
