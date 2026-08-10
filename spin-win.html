@@ -15,14 +15,21 @@
   :root{
     --navy:#10284A;
     --orange:#EA7424;
-    --bg:#F7FAFD;
-    --cream:#EDE9DE;
+    --orange-deep:#DC7A2A;
+    --orange-soft:#EF9B44;
+    --orange-shadow:#B85D18;
+    --blue:#8AD0EA;
+    --tan:#DCC9A3;
+    --yellow:#F4C24C;
+    --cream:#FBF0DA;
+    --espresso:#33210F;
+    --mocha:#9C7B4F;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   body{
-    background:var(--bg);
+    background:var(--cream);
     font-family:'Plus Jakarta Sans',sans-serif;
-    color:var(--navy);
+    color:var(--espresso);
     min-height:100vh;
     display:flex;
     flex-direction:column;
@@ -37,6 +44,7 @@
   header a{
     display:flex;align-items:center;gap:8px;text-decoration:none;
     font-family:'Outfit',sans-serif;font-weight:800;font-size:20px;letter-spacing:-0.01em;
+    color:var(--espresso);
   }
   header a span{color:var(--orange)}
 
@@ -46,19 +54,16 @@
     display:flex;
     flex-direction:column;
     align-items:center;
-    padding:8px 20px 48px;
+    padding:8px 20px 56px;
     text-align:center;
   }
-  .eyebrow{
-    font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
-    color:var(--orange);margin-bottom:8px;
-  }
   h1{
-    font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(28px,7vw,42px);
-    letter-spacing:-0.01em;margin-bottom:10px;
+    font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(30px,7vw,44px);
+    letter-spacing:-0.01em;margin-bottom:8px;color:var(--espresso);
   }
   .sub{
-    max-width:420px;color:#10284Ab3;font-size:15.5px;line-height:1.6;margin-bottom:28px;
+    font-weight:600;
+    max-width:420px;color:var(--mocha);font-size:16px;line-height:1.6;margin-bottom:32px;
   }
 
   /* ---- wheel ---- */
@@ -66,23 +71,23 @@
     position:relative;
     width:min(86vw,340px);
     aspect-ratio:1/1;
-    margin-bottom:28px;
+    margin-bottom:32px;
   }
   .pointer{
-    position:absolute;top:-6px;left:50%;transform:translateX(-50%);
+    position:absolute;top:-8px;left:50%;transform:translateX(-50%);
     width:0;height:0;
-    border-left:14px solid transparent;
-    border-right:14px solid transparent;
-    border-top:24px solid var(--navy);
+    border-left:16px solid transparent;
+    border-right:16px solid transparent;
+    border-top:26px solid var(--orange);
     z-index:3;
-    filter:drop-shadow(0 2px 2px rgba(0,0,0,0.25));
+    filter:drop-shadow(0 2px 2px rgba(0,0,0,0.2));
   }
   .wheel-ring{
     position:absolute;inset:0;
     border-radius:50%;
-    background:var(--navy);
+    background:#fff;
     padding:10px;
-    box-shadow:0 12px 28px rgba(16,40,74,0.25);
+    box-shadow:0 14px 30px rgba(51,33,15,0.18);
   }
   #wheel{
     display:block;width:100%;height:100%;
@@ -92,71 +97,105 @@
   }
   .hub{
     position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-    width:26%;height:26%;
+    width:24%;height:24%;
     border-radius:50%;
-    background:var(--orange);
-    color:#fff;
+    background:#fff;
     display:flex;align-items:center;justify-content:center;
-    font-family:'Outfit',sans-serif;font-weight:800;
-    font-size:clamp(13px,3.4vw,16px);
-    letter-spacing:0.02em;
     border:4px solid #fff;
-    cursor:pointer;
     z-index:2;
-    box-shadow:0 4px 10px rgba(0,0,0,0.2);
-    user-select:none;
+    box-shadow:0 4px 10px rgba(51,33,15,0.18);
+  }
+  .hub svg{width:62%;height:62%}
+
+  .spin-btn{
+    appearance:none;border:none;cursor:pointer;
+    font-family:'Outfit',sans-serif;font-weight:800;font-size:20px;letter-spacing:0.04em;
+    color:#fff;
+    background:var(--orange);
+    padding:16px 56px;
+    border-radius:999px;
+    box-shadow:0 6px 0 var(--orange-shadow);
+    margin-bottom:36px;
+    transition:transform 0.08s ease, box-shadow 0.08s ease;
     -webkit-tap-highlight-color:transparent;
   }
-  .hub:disabled,.hub[data-disabled="true"]{
-    background:#10284A55;cursor:default;
+  .spin-btn:active:not([data-disabled="true"]){
+    transform:translateY(4px);
+    box-shadow:0 2px 0 var(--orange-shadow);
   }
-  .hub:active:not([data-disabled="true"]){transform:translate(-50%,-50%) scale(0.96)}
+  .spin-btn[data-disabled="true"]{
+    background:#D8C9AE;box-shadow:0 6px 0 #B7A889;cursor:default;color:#fff;
+  }
 
   /* ---- result panel ---- */
   .result{
     display:none;
     width:100%;max-width:420px;
     background:#fff;
-    border:1px solid #10284A1a;
+    border:1px solid #33210F14;
     border-radius:18px;
     padding:26px 24px;
-    box-shadow:0 8px 24px rgba(16,40,74,0.08);
+    box-shadow:0 8px 24px rgba(51,33,15,0.08);
+    margin-bottom:8px;
   }
   .result.show{display:block}
   .result .prize-icon{font-size:38px;margin-bottom:6px}
   .result h2{
-    font-family:'Outfit',sans-serif;font-weight:800;font-size:22px;margin-bottom:8px;
+    font-family:'Outfit',sans-serif;font-weight:800;font-size:22px;margin-bottom:8px;color:var(--espresso);
   }
-  .result p{font-size:14.5px;line-height:1.6;color:#10284Ab3;margin-bottom:14px}
+  .result p{font-size:14.5px;line-height:1.6;color:var(--mocha);margin-bottom:14px}
   .redeem-box{
-    background:var(--bg);
-    border:1px dashed #10284A33;
+    background:var(--cream);
+    border:1px dashed #33210F33;
     border-radius:12px;
     padding:12px 14px;
     font-size:13px;
-    color:#10284A99;
+    color:var(--mocha);
     display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
   }
-  .redeem-box b{color:var(--navy)}
+  .redeem-box b{color:var(--espresso)}
 
   .again-note{
-    margin-top:16px;font-size:13px;color:#10284A80;
+    margin-top:16px;font-size:13px;color:var(--mocha);
   }
 
-  .steps{
-    display:flex;gap:20px;flex-wrap:wrap;justify-content:center;
-    max-width:480px;margin-top:36px;padding-top:28px;border-top:1px solid #10284A14;
+  /* ---- how it works ---- */
+  .how{
+    width:100%;max-width:760px;margin-top:20px;
   }
-  .step{width:130px;font-size:13px;color:#10284A99;line-height:1.5}
-  .step b{display:block;color:var(--navy);font-family:'Outfit',sans-serif;font-size:15px;margin-bottom:4px}
+  .how h2{
+    font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(22px,4vw,28px);
+    color:var(--espresso);margin-bottom:20px;
+  }
+  .steps{
+    display:flex;gap:18px;flex-wrap:wrap;justify-content:center;
+  }
+  .step{
+    width:210px;
+    background:#fff;
+    border-radius:16px;
+    padding:22px 18px;
+    box-shadow:0 6px 18px rgba(51,33,15,0.08);
+  }
+  .step-num{
+    width:34px;height:34px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Outfit',sans-serif;font-weight:800;font-size:15px;color:#fff;
+    margin:0 auto 12px;
+  }
+  .step:nth-child(1) .step-num{background:var(--orange)}
+  .step:nth-child(2) .step-num{background:var(--blue)}
+  .step:nth-child(3) .step-num{background:var(--yellow)}
+  .step b{display:block;font-family:'Outfit',sans-serif;font-weight:800;font-size:16px;color:var(--espresso);margin-bottom:6px}
+  .step p{font-size:13.5px;line-height:1.5;color:var(--mocha)}
 
   .back-link{
-    margin-top:32px;font-size:14px;font-weight:600;color:var(--navy);text-decoration:none;
+    margin-top:36px;font-size:14px;font-weight:600;color:var(--espresso);text-decoration:none;
     border-bottom:2px solid var(--orange);padding-bottom:2px;
   }
 
-  footer{
-    text-align:center;padding:20px;font-size:12.5px;color:#10284A66;
+  .disclaimer{
+    max-width:560px;margin-top:32px;font-size:12.5px;line-height:1.7;color:var(--mocha);opacity:0.85;
   }
 
   [aria-live]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
@@ -169,17 +208,24 @@
 </header>
 
 <main>
-  <div class="eyebrow">Coffee With a Cause</div>
-  <h1>Spin &amp; Win 🎉</h1>
-  <p class="sub">Tap the wheel for a free chance to win. No app, no sign-up — just show your barista the screen to redeem with today's purchase.</p>
+  <h1>Spin to Win!</h1>
+  <p class="sub">One spin per customer &middot; with a coffee order</p>
 
   <div class="wheel-wrap">
     <div class="pointer" aria-hidden="true"></div>
     <div class="wheel-ring">
       <svg id="wheel" viewBox="0 0 400 400"></svg>
     </div>
-    <button class="hub" id="spinBtn" type="button">SPIN</button>
+    <div class="hub" aria-hidden="true">
+      <svg viewBox="0 0 60 60">
+        <circle cx="34" cy="18" r="9" fill="#EA7424"/>
+        <circle cx="20" cy="14" r="5" fill="#EA7424"/>
+        <path d="M18 26 C 8 30, 8 44, 22 48 C 36 52, 44 40, 38 30 C 34 24, 24 22, 18 26 Z" fill="#8AD0EA"/>
+      </svg>
+    </div>
   </div>
+
+  <button class="spin-btn" id="spinBtn" type="button">SPIN</button>
 
   <div class="result" id="result">
     <div class="prize-icon" id="prizeIcon">🎁</div>
@@ -194,16 +240,31 @@
 
   <div role="status" aria-live="polite" id="liveRegion"></div>
 
-  <div class="steps">
-    <div class="step"><b>1. Spin</b>Tap the wheel and watch it go.</div>
-    <div class="step"><b>2. See your prize</b>Every spin wins something, most of the time.</div>
-    <div class="step"><b>3. Show &amp; redeem</b>Show this screen to our barista with today's purchase.</div>
+  <div class="how">
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <b>Tap SPIN</b>
+        <p>Give the wheel a whirl — one spin per customer.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <b>See your prize</b>
+        <p>Your result shows on screen instantly.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <b>Show our team</b>
+        <p>Reveal it at the counter to redeem, with a coffee order.</p>
+      </div>
+    </div>
   </div>
 
   <a class="back-link" href="visit.html">Find our Bankstown café →</a>
-</main>
 
-<footer>One spin per customer per day &middot; Prize must be redeemed same day in-store</footer>
+  <p class="disclaimer">Valid with a coffee order, one per customer per day. Prizes cannot be exchanged for cash. Show the winning screen to our team to redeem before you leave. Frapp &amp; Capp reserves the right to vary this promotion.</p>
+</main>
 
 <script>
 (function(){
@@ -211,18 +272,18 @@
 
   // Matches the odds table in the Spin & Win promo proposal.
   var prizes = [
-    { key:'upgrade', label:'Size\nUpgrade',   pct:22.4, color:'#EA7424', text:'#fff', icon:'🥤', win:true,
+    { key:'upgrade', label:'Size Up\nS → L',   pct:22.4, color:'#8AD0EA', text:'#33210F', icon:'⬆️', win:true,
       name:'Size Upgrade!', msg:'Show this screen to our barista for a free size upgrade (S → L) with your order today.' },
-    { key:'again1',  label:'Try\nAgain',       pct:11.2, color:'#EDE9DE', text:'#10284A', win:false },
-    { key:'order10', label:'10% Off\nThis Order', pct:13.8, color:'#10284A', text:'#fff', icon:'☕', win:true,
+    { key:'again1',  label:'Better\nLuck',       pct:11.2, color:'#DCC9A3', text:'#33210F', icon:'🤎', win:false },
+    { key:'order10', label:'10%\nOff', pct:13.8, color:'#F4C24C', text:'#33210F', icon:'💰', win:true,
       name:'10% Off This Order!', msg:'Show this screen to our barista for 10% off the order you’re about to make.' },
-    { key:'again2',  label:'Try\nAgain',       pct:11.2, color:'#EDE9DE', text:'#10284A', win:false },
-    { key:'biscuit', label:'Free\nBiscuit',    pct:12.1, color:'#F2955A', text:'#fff', icon:'🍪', win:true,
+    { key:'again2',  label:'Better\nLuck',       pct:11.2, color:'#DCC9A3', text:'#33210F', icon:'🤎', win:false },
+    { key:'biscuit', label:'Free\nBiscuit',    pct:12.1, color:'#EF9B44', text:'#33210F', icon:'🍪', win:true,
       name:'Free Biscuit!', msg:'Show this screen to our barista to claim a free biscuit with your purchase today.' },
-    { key:'again3',  label:'Try\nAgain',       pct:11.2, color:'#EDE9DE', text:'#10284A', win:false },
-    { key:'next10',  label:'10% Off\nNext Visit', pct:13.8, color:'#1B3A63', text:'#fff', icon:'🎟️', win:true,
+    { key:'again3',  label:'Better\nLuck',       pct:11.2, color:'#DCC9A3', text:'#33210F', icon:'🤎', win:false },
+    { key:'next10',  label:'Next Visit\n10% Off', pct:13.8, color:'#8AD0EA', text:'#33210F', icon:'💛', win:true,
       name:'10% Off Your Next Visit!', msg:'Show this screen next time you order for 10% off that visit.' },
-    { key:'coffee',  label:'Free\nCoffee',     pct:4.3,  color:'#C85A12', text:'#fff', icon:'✨', win:true,
+    { key:'coffee',  label:'FREE\nCOFFEE',     pct:4.3,  color:'#DC7A2A', text:'#33210F', icon:'🎉', win:true,
       name:'Free Coffee!', msg:'Show this screen to our barista to claim a free coffee with your purchase today.' }
   ];
 
@@ -255,19 +316,34 @@
     svg.appendChild(path);
 
     var mid = p.start + p.width / 2;
+    var labelR = p.pct < 8 ? r * 0.74 : r * 0.62;
+    var lp = polar(cx, cy, labelR, mid);
+    var lines = p.label.split('\n');
+    var fontSize = p.pct < 8 ? 10 : 12;
+    var lineHeight = fontSize + 2;
+    var blockHeight = lines.length * lineHeight + 16;
+    var startY = lp.y - blockHeight / 2 + 12;
+
     var textGroup = document.createElementNS(ns, 'text');
-    textGroup.setAttribute('x', cx);
-    textGroup.setAttribute('y', cy - r + 34);
+    textGroup.setAttribute('x', lp.x);
+    textGroup.setAttribute('y', startY);
     textGroup.setAttribute('text-anchor', 'middle');
-    textGroup.setAttribute('transform', 'rotate('+mid+' '+cx+' '+cy+')');
     textGroup.setAttribute('fill', p.text);
     textGroup.setAttribute('font-family', "'Plus Jakarta Sans', sans-serif");
-    textGroup.setAttribute('font-weight', '700');
-    textGroup.setAttribute('font-size', p.pct < 8 ? '11' : '13');
-    p.label.split('\n').forEach(function(line, i){
+
+    var iconTspan = document.createElementNS(ns, 'tspan');
+    iconTspan.setAttribute('x', lp.x);
+    iconTspan.setAttribute('dy', '0');
+    iconTspan.setAttribute('font-size', p.pct < 8 ? '13' : '16');
+    iconTspan.textContent = p.icon;
+    textGroup.appendChild(iconTspan);
+
+    lines.forEach(function(line, i){
       var tspan = document.createElementNS(ns, 'tspan');
-      tspan.setAttribute('x', cx);
-      tspan.setAttribute('dy', i === 0 ? '0' : '14');
+      tspan.setAttribute('x', lp.x);
+      tspan.setAttribute('dy', i === 0 ? (lineHeight + 4) : lineHeight);
+      tspan.setAttribute('font-weight', '700');
+      tspan.setAttribute('font-size', fontSize);
       tspan.textContent = line;
       textGroup.appendChild(tspan);
     });
