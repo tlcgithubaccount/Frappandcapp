@@ -11,7 +11,7 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="canonical" href="https://frappandcapp.com/spin-win.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fredoka:wght@600;700&display=swap">
 <style>
   :root{
     --navy:#10284A;
@@ -73,6 +73,11 @@
     width:min(86vw,340px);
     aspect-ratio:1/1;
     margin-bottom:32px;
+  }
+  @media (min-width:768px){
+    .wheel-wrap{
+      width:min(46vw,520px);
+    }
   }
   .pointer{
     position:absolute;top:-8px;left:50%;transform:translateX(-50%);
@@ -140,7 +145,6 @@
     margin-bottom:8px;
   }
   .result.show{display:block}
-  .result .prize-icon{font-size:38px;margin-bottom:6px}
   .result h2{
     font-family:'Outfit',sans-serif;font-weight:800;font-size:22px;margin-bottom:8px;color:var(--espresso);
   }
@@ -261,7 +265,6 @@
   <button class="spin-btn" id="spinBtn" type="button">SPIN</button>
 
   <div class="result" id="result">
-    <div class="prize-icon" id="prizeIcon">🎁</div>
     <h2 id="prizeName"></h2>
     <p id="prizeMsg"></p>
     <div class="redeem-box" id="redeemBox">
@@ -313,7 +316,7 @@
 
   <a class="back-link" href="visit.html">Find our Bankstown café →</a>
 
-  <p class="mission-line">🎉 Every cup and every spin funds meaningful employment for our team.</p>
+  <p class="mission-line">Every cup and every spin funds meaningful employment for our team.</p>
 
   <p class="disclaimer">Valid with a coffee order, one per customer per day. Prizes cannot be exchanged for cash. Show the winning screen to our team to redeem before you leave. Frapp &amp; Capp reserves the right to vary this promotion.</p>
 </main>
@@ -324,21 +327,24 @@
 
   // Matches the odds table in the Spin & Win promo proposal.
   var prizes = [
-    { key:'upgrade', label:'Size Up\nS → L',   pct:22.4, color:'#8AD0EA', text:'#33210F', icon:'⬆️', win:true,
+    { key:'upgrade', label:'Size Up\nS → L',   pct:22.4, color:'#8AD0EA', win:true,
       name:'Size Upgrade!', msg:'Show this screen to our barista for a free size upgrade (S → L) with your order today.' },
-    { key:'again1',  label:'Thank\nYou',       pct:11.2, color:'#DCC9A3', text:'#33210F', icon:'💛', win:false },
-    { key:'order10', label:'10%\nOff', pct:13.8, color:'#F4C24C', text:'#33210F', icon:'💰', win:true,
+    { key:'again1',  label:'Thank\nYou',       pct:11.2, color:'#DCC9A3', win:false },
+    { key:'order10', label:'10%\nOff', pct:13.8, color:'#F4C24C', win:true,
       name:'10% Off This Order!', msg:'Show this screen to our barista for 10% off the order you’re about to make.' },
-    { key:'again2',  label:'Thank\nYou',       pct:11.2, color:'#DCC9A3', text:'#33210F', icon:'💛', win:false },
-    { key:'biscuit', label:'Free\nBiscuit',    pct:12.1, color:'#EF9B44', text:'#33210F', icon:'🍪', win:true,
+    { key:'again2',  label:'Thank\nYou',       pct:11.2, color:'#DCC9A3', win:false },
+    { key:'biscuit', label:'Free\nBiscuit',    pct:12.1, color:'#EF9B44', win:true,
       name:'Free Biscuit!', msg:'Show this screen to our barista to claim a free biscuit with your purchase today.' },
-    { key:'again3',  label:'Thank\nYou',       pct:11.2, color:'#DCC9A3', text:'#33210F', icon:'💛', win:false },
-    { key:'next10',  label:'Next Visit\n10% Off', pct:13.8, color:'#8AD0EA', text:'#33210F', icon:'💛', win:true,
+    { key:'again3',  label:'Thank\nYou',       pct:11.2, color:'#DCC9A3', win:false },
+    { key:'next10',  label:'Next Visit\n10% Off', pct:13.8, color:'#8AD0EA', win:true,
       name:'10% Off Your Next Visit!', msg:'Show this screen next time you order for 10% off that visit.' },
-    { key:'coffee',  label:'FREE\nCOFFEE',     pct:4.3,  color:'#DC7A2A', text:'#33210F', icon:'🎉', win:true,
+    { key:'coffee',  label:'FREE\nCOFFEE',     pct:4.3,  color:'#DC7A2A', win:true,
       name:'Free Coffee!', msg:'Show this screen to our barista to claim a free coffee with your purchase today.' }
   ];
 
+  // Probability boundaries (unequal, matching the odds table) drive which prize
+  // is chosen. Visual boundaries (equal slices) drive how the wheel is drawn and
+  // where it visibly lands, so every segment looks the same size.
   var totalPct = prizes.reduce(function(s,p){ return s + p.pct; }, 0);
   var angle = 0;
   prizes.forEach(function(p){
@@ -346,6 +352,12 @@
     p.width = (p.pct / totalPct) * 360;
     p.end = p.start + p.width;
     angle = p.end;
+  });
+
+  var visualWidth = 360 / prizes.length;
+  prizes.forEach(function(p, i){
+    p.visualStart = i * visualWidth;
+    p.visualEnd = (i + 1) * visualWidth;
   });
 
   function polar(cx, cy, r, deg){
@@ -357,9 +369,9 @@
   var ns = 'http://www.w3.org/2000/svg';
 
   prizes.forEach(function(p){
-    var p0 = polar(cx, cy, r, p.start);
-    var p1 = polar(cx, cy, r, p.end);
-    var largeArc = p.width > 180 ? 1 : 0;
+    var p0 = polar(cx, cy, r, p.visualStart);
+    var p1 = polar(cx, cy, r, p.visualEnd);
+    var largeArc = visualWidth > 180 ? 1 : 0;
     var path = document.createElementNS(ns, 'path');
     path.setAttribute('d', 'M '+cx+' '+cy+' L '+p0.x+' '+p0.y+' A '+r+' '+r+' 0 '+largeArc+' 1 '+p1.x+' '+p1.y+' Z');
     path.setAttribute('fill', p.color);
@@ -367,33 +379,30 @@
     path.setAttribute('stroke-width', '2');
     svg.appendChild(path);
 
-    var mid = p.start + p.width / 2;
-    var labelR = p.pct < 8 ? r * 0.74 : r * 0.62;
+    var mid = p.visualStart + visualWidth / 2;
+    var labelR = r * 0.64;
     var lp = polar(cx, cy, labelR, mid);
     var lines = p.label.split('\n');
-    var fontSize = p.pct < 8 ? 10 : 12;
-    var lineHeight = fontSize + 2;
-    var blockHeight = lines.length * lineHeight + 16;
-    var startY = lp.y - blockHeight / 2 + 12;
+    var fontSize = 14;
+    var lineHeight = fontSize + 3;
+    var blockHeight = lines.length * lineHeight;
+    var startY = lp.y - blockHeight / 2 + fontSize * 0.7;
 
     var textGroup = document.createElementNS(ns, 'text');
     textGroup.setAttribute('x', lp.x);
     textGroup.setAttribute('y', startY);
     textGroup.setAttribute('text-anchor', 'middle');
-    textGroup.setAttribute('fill', p.text);
-    textGroup.setAttribute('font-family', "'Plus Jakarta Sans', sans-serif");
-
-    var iconTspan = document.createElementNS(ns, 'tspan');
-    iconTspan.setAttribute('x', lp.x);
-    iconTspan.setAttribute('dy', '0');
-    iconTspan.setAttribute('font-size', p.pct < 8 ? '13' : '16');
-    iconTspan.textContent = p.icon;
-    textGroup.appendChild(iconTspan);
+    textGroup.setAttribute('fill', '#FFFFFF');
+    textGroup.setAttribute('stroke', '#33210F');
+    textGroup.setAttribute('stroke-width', '3');
+    textGroup.setAttribute('stroke-opacity', '0.22');
+    textGroup.setAttribute('paint-order', 'stroke fill');
+    textGroup.setAttribute('font-family', "'Fredoka', sans-serif");
 
     lines.forEach(function(line, i){
       var tspan = document.createElementNS(ns, 'tspan');
       tspan.setAttribute('x', lp.x);
-      tspan.setAttribute('dy', i === 0 ? (lineHeight + 4) : lineHeight);
+      tspan.setAttribute('dy', i === 0 ? 0 : lineHeight);
       tspan.setAttribute('font-weight', '700');
       tspan.setAttribute('font-size', fontSize);
       tspan.textContent = line;
@@ -418,7 +427,6 @@
 
   function showResult(prize, code, isReplay){
     resultEl.classList.add('show');
-    document.getElementById('prizeIcon').textContent = prize.win ? (prize.icon || '🎁') : '💛';
     document.getElementById('prizeName').textContent = prize.win ? prize.name : 'Thanks for Spinning!';
     document.getElementById('prizeMsg').textContent = prize.win ? prize.msg : 'No prize this round, but every cup here funds real, meaningful jobs for our team. Come back tomorrow for another spin!';
     var redeemBox = document.getElementById('redeemBox');
@@ -473,7 +481,7 @@
       var isFirst = btn.getAttribute('data-first') === 'yes';
       try { localStorage.setItem(FIRST_VISIT_KEY, JSON.stringify({ date: todayStr(), isFirst: isFirst })); } catch(e){}
       trackEvent('spin_win_first_visit', { is_first_visit: isFirst });
-      firstVisitAsk.innerHTML = '<p class="mini-thanks">Thanks! ' + (isFirst ? 'Welcome to Frapp &amp; Capp 👋' : 'Great to see you again 🎉') + '</p>';
+      firstVisitAsk.innerHTML = '<p class="mini-thanks">Thanks! ' + (isFirst ? 'Welcome to Frapp &amp; Capp' : 'Great to see you again') + '</p>';
     });
   });
 
@@ -486,7 +494,7 @@
     var subject = encodeURIComponent('Spin & Win: notify me');
     var body = encodeURIComponent('Please notify me about seasonal drinks and new prizes.\n\nEmail: ' + email + '\nDate: ' + todayStr());
     window.location.href = 'mailto:tlcdisability@gmail.com?subject=' + subject + '&body=' + body;
-    notifyAsk.innerHTML = '<p class="mini-thanks">Almost done! Check your email app and hit send. 💛</p>';
+    notifyAsk.innerHTML = '<p class="mini-thanks">Almost done! Check your email app and hit send.</p>';
   });
 
   document.getElementById('notifySkip').addEventListener('click', function(){
@@ -495,11 +503,15 @@
   });
 
   function pickPrize(){
-    var landing = Math.random() * 360;
+    // Weighted pick (matches the odds table) decides which prize wins.
+    var roll = Math.random() * 360;
     var chosen = prizes[prizes.length - 1];
     for (var i = 0; i < prizes.length; i++){
-      if (landing >= prizes[i].start && landing < prizes[i].end){ chosen = prizes[i]; break; }
+      if (roll >= prizes[i].start && roll < prizes[i].end){ chosen = prizes[i]; break; }
     }
+    // Wheel visibly lands somewhere inside that prize's equal-sized slice.
+    var inset = visualWidth * 0.15;
+    var landing = chosen.visualStart + inset + Math.random() * (visualWidth - 2 * inset);
     return { prize: chosen, landing: landing };
   }
 
