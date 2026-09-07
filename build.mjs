@@ -94,6 +94,10 @@ for (const page of pages) {
   console.log('built', path, `${(Buffer.byteLength(html) / 1024).toFixed(1)} KB`);
 }
 
+// legacy URLs from the previous site (/menu.html etc): tiny refresh stubs pointing at the clean URLs
+for (const p of built.filter(p => !['index', '404'].includes(p.slug))) {
+  writeFileSync(join(DIST, `${p.slug}.html`), `<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><title>${p.title}</title><meta name="robots" content="noindex"><link rel="canonical" href="${ORIGIN}${p.path}"><meta http-equiv="refresh" content="0; url=${p.path}"></head><body><p>This page has moved to <a href="${p.path}">${ORIGIN}${p.path}</a>.</p></body></html>\n`);
+}
 // sitemap, robots, CNAME, .nojekyll
 const sm = built.filter(p => p.slug !== '404' && !p.noindex).map(p => `  <url><loc>${ORIGIN}${p.path}</loc><lastmod>${today}</lastmod><priority>${p.priority}</priority></url>`).join('\n');
 writeFileSync(join(DIST, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sm}\n</urlset>\n`);

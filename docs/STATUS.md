@@ -1,5 +1,7 @@
 # Status (7 September 2026)
 
+**Live since 7 Sep 2026.** GitHub Pages serves the `main` branch of tlcgithubaccount/Frappandcapp; the project is on the `source` branch; the previous site is kept on `backup-2026-09-07-design-tool-export`. To publish changes: edit on `source`, run `./deploy.sh "message"`.
+
 ## Done
 - Audit of the old site (audits/../frapp-capp-audit report in ~/.claude/tmp/frappandcapp-audit and the published artifact).
 - Round 1: three homepage directions built in parallel and scored (audits/r1/scoring.md). Winner: The Docket, with reading controls and live open status merged in from The Board.
