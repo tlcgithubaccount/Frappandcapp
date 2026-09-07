@@ -1,0 +1,26 @@
+/* Menu page: one long docket, section headings inside it, skill lines, print view. */
+.page-menu .rules-docket { max-width: 380px; margin-left: auto; }
+.page-menu .menu-docket { padding: 32px 28px 36px; }
+.page-menu .menu-docket .group-hd { font-size: 0.9rem; margin: 6px 0 4px; letter-spacing: 0.14em; }
+.page-menu .menu-docket .group-hd + .fine { margin: 0 0 10px; }
+.page-menu .menu-docket .line { margin: 8px 0; }
+.page-menu .menu-docket .desc.skill { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.02em; color: var(--ink-2); }
+.page-menu .menu-docket .desc.skill span { color: var(--stamp-ink); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.68rem; margin-right: 6px; }
+.page-menu .docket-list-row { align-items: start; }
+.page-menu .docket.plain .actions { margin-top: 18px; }
+.page-menu .docket.plain h3.hd { font-size: 0.9rem; margin: 0; }
+@media (max-width: 900px) {
+  .page-menu .rules-docket { max-width: none; margin-left: 0; }
+}
+@media (max-width: 767px) {
+  .page-menu .menu-docket { padding: 26px 18px 30px; }
+}
+@media print {
+  .page-menu .print-hide, .page-menu .page-hero .actions, .page-menu .rules-docket, .page-menu .page-hero .lede { display: none !important; }
+  .page-menu .page-hero { border: 0; padding: 0 0 12px; }
+  .page-menu .section { padding: 0; }
+  .page-menu .wrap-narrow { max-width: none; }
+  .page-menu .menu-docket { box-shadow: none; padding: 0; }
+  .page-menu .menu-docket::before, .page-menu .menu-docket::after { display: none; }
+  .page-menu .menu-docket .desc.skill { display: none; }
+}
