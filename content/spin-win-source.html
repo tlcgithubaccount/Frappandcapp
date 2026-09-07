@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spin & Win — Frapp & Capp</title>
+<meta name="description" content="Spin the wheel for a chance to win a prize at Frapp &amp; Capp. No app or sign-up needed, just spin and show the barista.">
+<meta property="og:title" content="Spin & Win — Frapp & Capp">
+<meta property="og:description" content="Spin the wheel for a chance to win a prize at Frapp & Capp.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="canonical" href="https://frappandcapp.com/spin-win.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fredoka:wght@600;700&display=swap">
+<style>
+  :root{
+    --navy:#10284A;
+    --orange:#EA7424;
+    --orange-deep:#DC7A2A;
+    --orange-soft:#EF9B44;
+    --orange-shadow:#B85D18;
+    --blue:#8AD0EA;
+    --tan:#DCC9A3;
+    --yellow:#F4C24C;
+    --cream:#FBF0DA;
+    --espresso:#33210F;
+    --mocha:#9C7B4F;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:var(--cream);
+    font-family:'Plus Jakarta Sans',sans-serif;
+    color:var(--espresso);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+  }
+  a{color:inherit}
+
+  /* ---- header ---- */
+  header{
+    display:flex;align-items:center;justify-content:center;
+    padding:18px 24px;
+  }
+  header a{
+    display:flex;align-items:center;gap:8px;text-decoration:none;
+    font-family:'Outfit',sans-serif;font-weight:800;font-size:20px;letter-spacing:-0.01em;
+    color:var(--espresso);
+  }
+  header a span{color:var(--orange)}
+
+  /* ---- main ---- */
+  main{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:8px 20px 56px;
+    text-align:center;
+  }
+  h1{
+    font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(30px,7vw,44px);
+    letter-spacing:-0.01em;margin-bottom:8px;color:var(--espresso);
+  }
+  .sub{
+    font-weight:600;
+    max-width:420px;color:var(--mocha);font-size:16px;line-height:1.6;margin-bottom:32px;
+  }
+
+  /* ---- wheel ---- */
+  .wheel-wrap{
+    position:relative;
+    width:min(86vw,340px);
+    aspect-ratio:1/1;
+    margin-bottom:32px;
+  }
+  @media (min-width:768px){
+    .wheel-wrap{
+      width:min(46vw,520px);
+    }
+  }
+  .pointer{
+    position:absolute;top:-8px;left:50%;transform:translateX(-50%);
+    width:0;height:0;
+    border-left:16px solid transparent;
+    border-right:16px solid transparent;
+    border-top:26px solid var(--orange);
+    z-index:3;
+    filter:drop-shadow(0 2px 2px rgba(0,0,0,0.2));
+  }
+  .wheel-ring{
+    position:absolute;inset:0;
+    border-radius:50%;
+    background:#fff;
+    padding:10px;
+    box-shadow:0 14px 30px rgba(51,33,15,0.18);
+  }
+  #wheel{
+    display:block;width:100%;height:100%;
+    border-radius:50%;
+    transition:transform 4.5s cubic-bezier(0.15,0.68,0.15,1);
+    background:#fff;
+  }
+  .hub{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:24%;height:24%;
+    border-radius:50%;
+    background:#fff;
+    display:flex;align-items:center;justify-content:center;
+    border:4px solid #fff;
+    z-index:2;
+    box-shadow:0 4px 10px rgba(51,33,15,0.18);
+  }
+  .hub img{width:62%;height:62%;object-fit:contain}
+
+  .spin-btn{
+    appearance:none;border:none;cursor:pointer;
+    font-family:'Outfit',sans-serif;font-weight:800;font-size:20px;letter-spacing:0.04em;
+    color:#fff;
+    background:var(--orange);
+    padding:16px 56px;
+    border-radius:999px;
+    box-shadow:0 6px 0 var(--orange-shadow);
+    margin-bottom:36px;
+    transition:transform 0.08s ease, box-shadow 0.08s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .spin-btn:active:not([data-disabled="true"]){
+    transform:translateY(4px);
+    box-shadow:0 2px 0 var(--orange-shadow);
+  }
+  .spin-btn[data-disabled="true"]{
+    background:#D8C9AE;box-shadow:0 6px 0 #B7A889;cursor:default;color:#fff;
+  }
+
+  /* ---- result panel ---- */
+  .result{
+    display:none;
+    width:100%;max-width:420px;
+    background:#fff;
+    border:1px solid #33210F14;
+    border-radius:18px;
+    padding:26px 24px;
+    box-shadow:0 8px 24px rgba(51,33,15,0.08);
+    margin-bottom:8px;
+  }
+  .result.show{display:block}
+  .result h2{
+    font-family:'Outfit',sans-serif;font-weight:800;font-size:22px;margin-bottom:8px;color:var(--espresso);
+  }
+  .result p{font-size:14.5px;line-height:1.6;color:var(--mocha);margin-bottom:14px}
+  .redeem-box{
+    background:var(--cream);
+    border:1px dashed #33210F33;
+    border-radius:12px;
+    padding:12px 14px;
+    font-size:13px;
+    color:var(--mocha);
+    display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  }
+  .redeem-box b{color:var(--espresso)}
+
+  .again-note{
+    margin-top:16px;font-size:13px;color:var(--mocha);
+  }
+
+  .mini-ask{
+    display:none;
+    margin-top:18px;padding-top:18px;
+    border-top:1px solid #33210F14;
+    text-align:left;
+  }
+  .mini-ask.show{display:block}
+  .mini-ask-q{font-size:13.5px;font-weight:600;color:var(--espresso);margin-bottom:10px;line-height:1.5}
+  .mini-ask-btns{display:flex;gap:8px;flex-wrap:wrap}
+  .mini-btn{
+    appearance:none;cursor:pointer;
+    font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:13px;
+    background:var(--cream);color:var(--espresso);
+    border:1px solid #33210F26;border-radius:999px;
+    padding:9px 16px;
+  }
+  .mini-btn:hover{background:#F2E6C9}
+  .mini-btn-primary{background:var(--orange);color:#fff;border-color:var(--orange)}
+  .notify-form{display:flex;gap:8px;flex-wrap:wrap}
+  .notify-form input{
+    flex:1;min-width:160px;
+    font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;
+    padding:9px 12px;border-radius:999px;border:1px solid #33210F26;
+    background:#fff;color:var(--espresso);
+  }
+  .mini-skip{
+    appearance:none;background:none;border:none;cursor:pointer;
+    font-family:'Plus Jakarta Sans',sans-serif;font-size:12.5px;color:var(--mocha);
+    text-decoration:underline;margin-top:8px;padding:0;
+  }
+  .mini-thanks{font-size:13px;color:var(--mocha)}
+
+  /* ---- how it works ---- */
+  .how{
+    width:100%;max-width:760px;margin-top:20px;
+  }
+  .how h2{
+    font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(22px,4vw,28px);
+    color:var(--espresso);margin-bottom:20px;
+  }
+  .steps{
+    display:flex;gap:18px;flex-wrap:wrap;justify-content:center;
+  }
+  .step{
+    width:210px;
+    background:#fff;
+    border-radius:16px;
+    padding:22px 18px;
+    box-shadow:0 6px 18px rgba(51,33,15,0.08);
+  }
+  .step-num{
+    width:34px;height:34px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Outfit',sans-serif;font-weight:800;font-size:15px;color:#fff;
+    margin:0 auto 12px;
+  }
+  .step:nth-child(1) .step-num{background:var(--orange)}
+  .step:nth-child(2) .step-num{background:var(--blue)}
+  .step:nth-child(3) .step-num{background:var(--yellow)}
+  .step b{display:block;font-family:'Outfit',sans-serif;font-weight:800;font-size:16px;color:var(--espresso);margin-bottom:6px}
+  .step p{font-size:13.5px;line-height:1.5;color:var(--mocha)}
+
+  .back-link{
+    margin-top:36px;font-size:14px;font-weight:600;color:var(--espresso);text-decoration:none;
+    border-bottom:2px solid var(--orange);padding-bottom:2px;
+  }
+
+  .mission-line{
+    max-width:420px;margin-top:28px;font-size:14px;font-weight:600;line-height:1.6;color:var(--espresso);
+  }
+
+  .disclaimer{
+    max-width:560px;margin-top:14px;font-size:12.5px;line-height:1.7;color:var(--mocha);opacity:0.85;
+  }
+
+  [aria-live]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html"><img src="logo-mark.png" alt="" height="28">Frapp <span>&amp;</span> Capp</a>
+</header>
+
+<main>
+  <h1>Spin to Win!</h1>
+  <p class="sub">One spin per customer &middot; with a coffee order</p>
+
+  <div class="wheel-wrap">
+    <div class="pointer" aria-hidden="true"></div>
+    <div class="wheel-ring">
+      <svg id="wheel" viewBox="0 0 400 400"></svg>
+    </div>
+    <div class="hub" aria-hidden="true">
+      <img src="logo-mark.png" alt="" width="60" height="60">
+    </div>
+  </div>
+
+  <button class="spin-btn" id="spinBtn" type="button">SPIN</button>
+
+  <div class="result" id="result">
+    <h2 id="prizeName"></h2>
+    <p id="prizeMsg"></p>
+    <div class="redeem-box" id="redeemBox">
+      <span>Code <b id="redeemCode"></b></span>
+      <span>Valid <b id="redeemDate"></b></span>
+    </div>
+    <p class="again-note" id="againNote"></p>
+
+    <div class="mini-ask" id="firstVisitAsk">
+      <p class="mini-ask-q">Quick one: first time at Frapp &amp; Capp?</p>
+      <div class="mini-ask-btns">
+        <button type="button" class="mini-btn" data-first="yes">First time!</button>
+        <button type="button" class="mini-btn" data-first="no">I'm a regular</button>
+      </div>
+    </div>
+
+    <div class="mini-ask" id="notifyAsk">
+      <p class="mini-ask-q">Want a heads up when seasonal drinks &amp; new prizes drop? Totally optional. We'll open a quick email for you to send.</p>
+      <form class="notify-form" id="notifyForm">
+        <input type="email" id="notifyEmail" placeholder="you@email.com" required>
+        <button type="submit" class="mini-btn mini-btn-primary">Notify me</button>
+      </form>
+      <button type="button" class="mini-skip" id="notifySkip">No thanks</button>
+    </div>
+  </div>
+
+  <div role="status" aria-live="polite" id="liveRegion"></div>
+
+  <div class="how">
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <b>Tap SPIN</b>
+        <p>Give the wheel a whirl, one spin per customer.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <b>See your prize</b>
+        <p>Your result shows on screen instantly.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <b>Show our team</b>
+        <p>Reveal it at the counter to redeem, with a coffee order.</p>
+      </div>
+    </div>
+  </div>
+
+  <a class="back-link" href="visit.html">Find our Bankstown café →</a>
+
+  <p class="mission-line">Every cup and every spin funds meaningful employment for our team.</p>
+
+  <p class="disclaimer">Valid with a coffee order, one per customer per day. Prizes cannot be exchanged for cash. Show the winning screen to our team to redeem before you leave. Frapp &amp; Capp reserves the right to vary this promotion.</p>
+</main>
+
+<script>
+(function(){
+  var cx = 200, cy = 200, r = 188;
+
+  // Matches the odds table in the Spin & Win promo proposal.
+  var prizes = [
+    { key:'upgrade', label:'Size Up\nS → L',   pct:22.4, color:'#8AD0EA', win:true,
+      name:'Size Upgrade!', msg:'Show this screen to our barista for a free size upgrade (S → L) with your order today.' },
+    { key:'again1',  label:'Thank\nYou',       pct:11.2, color:'#DCC9A3', win:false },
+    { key:'order10', label:'10%\nOff', pct:13.8, color:'#F4C24C', win:true,
+      name:'10% Off This Order!', msg:'Show this screen to our barista for 10% off the order you’re about to make.' },
+    { key:'again2',  label:'Thank\nYou',       pct:11.2, color:'#DCC9A3', win:false },
+    { key:'biscuit', label:'Free\nBiscuit',    pct:12.1, color:'#EF9B44', win:true,
+      name:'Free Biscuit!', msg:'Show this screen to our barista to claim a free biscuit with your purchase today.' },
+    { key:'again3',  label:'Thank\nYou',       pct:11.2, color:'#DCC9A3', win:false },
+    { key:'next10',  label:'Next Visit\n10% Off', pct:13.8, color:'#8AD0EA', win:true,
+      name:'10% Off Your Next Visit!', msg:'Show this screen next time you order for 10% off that visit.' },
+    { key:'coffee',  label:'FREE\nCOFFEE',     pct:4.3,  color:'#DC7A2A', win:true,
+      name:'Free Coffee!', msg:'Show this screen to our barista to claim a free coffee with your purchase today.' }
+  ];
+
+  // Probability boundaries (unequal, matching the odds table) drive which prize
+  // is chosen. Visual boundaries (equal slices) drive how the wheel is drawn and
+  // where it visibly lands, so every segment looks the same size.
+  var totalPct = prizes.reduce(function(s,p){ return s + p.pct; }, 0);
+  var angle = 0;
+  prizes.forEach(function(p){
+    p.start = angle;
+    p.width = (p.pct / totalPct) * 360;
+    p.end = p.start + p.width;
+    angle = p.end;
+  });
+
+  var visualWidth = 360 / prizes.length;
+  prizes.forEach(function(p, i){
+    p.visualStart = i * visualWidth;
+    p.visualEnd = (i + 1) * visualWidth;
+  });
+
+  function polar(cx, cy, r, deg){
+    var rad = (deg - 90) * Math.PI / 180; // 0deg = 12 o'clock
+    return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) };
+  }
+
+  var svg = document.getElementById('wheel');
+  var ns = 'http://www.w3.org/2000/svg';
+
+  prizes.forEach(function(p){
+    var p0 = polar(cx, cy, r, p.visualStart);
+    var p1 = polar(cx, cy, r, p.visualEnd);
+    var largeArc = visualWidth > 180 ? 1 : 0;
+    var path = document.createElementNS(ns, 'path');
+    path.setAttribute('d', 'M '+cx+' '+cy+' L '+p0.x+' '+p0.y+' A '+r+' '+r+' 0 '+largeArc+' 1 '+p1.x+' '+p1.y+' Z');
+    path.setAttribute('fill', p.color);
+    path.setAttribute('stroke', '#fff');
+    path.setAttribute('stroke-width', '2');
+    svg.appendChild(path);
+
+    var mid = p.visualStart + visualWidth / 2;
+    var labelR = r * 0.64;
+    var lp = polar(cx, cy, labelR, mid);
+    var lines = p.label.split('\n');
+    var fontSize = 14;
+    var lineHeight = fontSize + 3;
+    var blockHeight = lines.length * lineHeight;
+    var startY = lp.y - blockHeight / 2 + fontSize * 0.7;
+
+    var textGroup = document.createElementNS(ns, 'text');
+    textGroup.setAttribute('x', lp.x);
+    textGroup.setAttribute('y', startY);
+    textGroup.setAttribute('text-anchor', 'middle');
+    textGroup.setAttribute('fill', '#FFFFFF');
+    textGroup.setAttribute('stroke', '#33210F');
+    textGroup.setAttribute('stroke-width', '3');
+    textGroup.setAttribute('stroke-opacity', '0.22');
+    textGroup.setAttribute('paint-order', 'stroke fill');
+    textGroup.setAttribute('font-family', "'Fredoka', sans-serif");
+
+    lines.forEach(function(line, i){
+      var tspan = document.createElementNS(ns, 'tspan');
+      tspan.setAttribute('x', lp.x);
+      tspan.setAttribute('dy', i === 0 ? 0 : lineHeight);
+      tspan.setAttribute('font-weight', '700');
+      tspan.setAttribute('font-size', fontSize);
+      tspan.textContent = line;
+      textGroup.appendChild(tspan);
+    });
+    svg.appendChild(textGroup);
+  });
+
+  var spinBtn = document.getElementById('spinBtn');
+  var resultEl = document.getElementById('result');
+  var liveRegion = document.getElementById('liveRegion');
+  var currentRotation = 0;
+  var STORAGE_KEY = 'fc_spin_win';
+
+  function todayStr(){
+    return new Date().toISOString().slice(0,10);
+  }
+
+  function randomCode(){
+    return Math.random().toString(36).slice(2,6).toUpperCase();
+  }
+
+  function showResult(prize, code, isReplay){
+    resultEl.classList.add('show');
+    document.getElementById('prizeName').textContent = prize.win ? prize.name : 'Thanks for Spinning!';
+    document.getElementById('prizeMsg').textContent = prize.win ? prize.msg : 'No prize this round, but every cup here funds real, meaningful jobs for our team. Come back tomorrow for another spin!';
+    var redeemBox = document.getElementById('redeemBox');
+    if (prize.win){
+      redeemBox.style.display = 'flex';
+      document.getElementById('redeemCode').textContent = code;
+      document.getElementById('redeemDate').textContent = 'today only';
+    } else {
+      redeemBox.style.display = 'none';
+    }
+    document.getElementById('againNote').textContent = isReplay
+      ? 'You already spun today. Here’s what you won. See you tomorrow for another spin!'
+      : '';
+    liveRegion.textContent = (prize.win ? prize.name : 'No prize this time') + '. ' + (prize.win ? prize.msg : '');
+  }
+
+  function lockSpinButton(){
+    spinBtn.setAttribute('data-disabled', 'true');
+    spinBtn.textContent = 'DONE';
+  }
+
+  // ---- optional, non-blocking post-spin asks ----
+  var FIRST_VISIT_KEY = 'fc_first_visit';
+  var NOTIFY_KEY = 'fc_notify_optin';
+
+  function trackEvent(name, params){
+    try { if (typeof gtag === 'function') gtag('event', name, params || {}); } catch(e){}
+  }
+
+  function answeredToday(key){
+    try {
+      var saved = JSON.parse(localStorage.getItem(key) || 'null');
+      return !!(saved && saved.date === todayStr());
+    } catch(e){ return false; }
+  }
+
+  var firstVisitAsk = document.getElementById('firstVisitAsk');
+  var notifyAsk = document.getElementById('notifyAsk');
+
+  function showFirstVisitAsk(){
+    if (answeredToday(FIRST_VISIT_KEY)) return;
+    firstVisitAsk.classList.add('show');
+  }
+
+  function showNotifyAsk(){
+    if (answeredToday(NOTIFY_KEY)) return;
+    notifyAsk.classList.add('show');
+  }
+
+  Array.prototype.forEach.call(firstVisitAsk.querySelectorAll('[data-first]'), function(btn){
+    btn.addEventListener('click', function(){
+      var isFirst = btn.getAttribute('data-first') === 'yes';
+      try { localStorage.setItem(FIRST_VISIT_KEY, JSON.stringify({ date: todayStr(), isFirst: isFirst })); } catch(e){}
+      trackEvent('spin_win_first_visit', { is_first_visit: isFirst });
+      firstVisitAsk.innerHTML = '<p class="mini-thanks">Thanks! ' + (isFirst ? 'Welcome to Frapp &amp; Capp' : 'Great to see you again') + '</p>';
+    });
+  });
+
+  document.getElementById('notifyForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = document.getElementById('notifyEmail').value.trim();
+    if (!email) return;
+    try { localStorage.setItem(NOTIFY_KEY, JSON.stringify({ date: todayStr(), email: email })); } catch(e){}
+    trackEvent('spin_win_notify_optin', {});
+    var subject = encodeURIComponent('Spin & Win: notify me');
+    var body = encodeURIComponent('Please notify me about seasonal drinks and new prizes.\n\nEmail: ' + email + '\nDate: ' + todayStr());
+    window.location.href = 'mailto:tlcdisability@gmail.com?subject=' + subject + '&body=' + body;
+    notifyAsk.innerHTML = '<p class="mini-thanks">Almost done! Check your email app and hit send.</p>';
+  });
+
+  document.getElementById('notifySkip').addEventListener('click', function(){
+    try { localStorage.setItem(NOTIFY_KEY, JSON.stringify({ date: todayStr(), skipped: true })); } catch(e){}
+    notifyAsk.classList.remove('show');
+  });
+
+  function pickPrize(){
+    // Weighted pick (matches the odds table) decides which prize wins.
+    var roll = Math.random() * 360;
+    var chosen = prizes[prizes.length - 1];
+    for (var i = 0; i < prizes.length; i++){
+      if (roll >= prizes[i].start && roll < prizes[i].end){ chosen = prizes[i]; break; }
+    }
+    // Wheel visibly lands somewhere inside that prize's equal-sized slice.
+    var inset = visualWidth * 0.15;
+    var landing = chosen.visualStart + inset + Math.random() * (visualWidth - 2 * inset);
+    return { prize: chosen, landing: landing };
+  }
+
+  function spin(){
+    if (spinBtn.getAttribute('data-disabled') === 'true') return;
+    spinBtn.setAttribute('data-disabled', 'true');
+
+    var picked = pickPrize();
+    var extraTurns = 5 + Math.floor(Math.random() * 2); // 5-6 full turns
+    var target = extraTurns * 360 + (360 - picked.landing);
+    currentRotation += target;
+    svg.style.transform = 'rotate('+currentRotation+'deg)';
+
+    setTimeout(function(){
+      var code = picked.prize.win ? randomCode() : null;
+      showResult(picked.prize, code, false);
+      lockSpinButton();
+      showFirstVisitAsk();
+      showNotifyAsk();
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          date: todayStr(),
+          prizeKey: picked.prize.key,
+          code: code,
+          rotation: currentRotation
+        }));
+      } catch(e){}
+    }, 4600);
+  }
+
+  spinBtn.addEventListener('click', spin);
+
+  // Restore today's result if the visitor already spun.
+  try {
+    var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+    if (saved && saved.date === todayStr()){
+      var prize = prizes.filter(function(p){ return p.key === saved.prizeKey; })[0];
+      if (prize){
+        currentRotation = saved.rotation || 0;
+        svg.style.transition = 'none';
+        svg.style.transform = 'rotate('+currentRotation+'deg)';
+        showResult(prize, saved.code, true);
+        lockSpinButton();
+      }
+    }
+  } catch(e){}
+})();
+</script>
+
+</body>
+</html>

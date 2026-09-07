@@ -1,0 +1,6 @@
+/* Our Story: press docket links and the closing band */
+.docket .line.press a.lbl { color: var(--ink); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.docket .line.press a.lbl:hover, .docket .line.press a.lbl:focus-visible { color: var(--stamp-ink); }
+.page-our-story .band .what { max-width: 32ch; }
+.page-our-story .band .actions { justify-content: flex-start; }
+@media (min-width: 761px) { .page-our-story .band .actions { justify-content: flex-end; } }

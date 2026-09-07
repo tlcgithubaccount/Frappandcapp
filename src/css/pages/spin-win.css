@@ -1,0 +1,26 @@
+/* Spin & Win: the wheel and the prize docket. */
+.spin-stage { text-align: center; padding-top: 8px; }
+.wheel-wrap { position: relative; width: min(86vw, 340px); aspect-ratio: 1 / 1; margin: 0 auto 24px; }
+@media (min-width: 768px) { .wheel-wrap { width: min(46vw, 460px); } }
+.pointer { position: absolute; top: -6px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 16px solid transparent; border-right: 16px solid transparent; border-top: 28px solid var(--stamp); z-index: 3; filter: drop-shadow(0 2px 2px rgba(16, 40, 74, .25)); }
+.wheel-ring { position: absolute; inset: 0; border-radius: 50%; background: var(--docket); padding: 10px; box-shadow: var(--shadow); border: var(--rule-w) solid var(--rule); }
+#wheel { display: block; width: 100%; height: 100%; border-radius: 50%; background: var(--docket); transition: transform 4.5s cubic-bezier(.15, .68, .15, 1); }
+.hub { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 24%; height: 24%; border-radius: 50%; background: var(--docket); border: 4px solid var(--docket); box-shadow: 0 4px 10px rgba(16, 40, 74, .18); z-index: 2; display: flex; align-items: center; justify-content: center; }
+.hub img { height: 60%; width: auto; }
+.spin-actions { margin: 0; }
+.spin-btn { font-size: 1rem; padding: 14px 40px; }
+.spin-btn[aria-disabled="true"] { opacity: .7; pointer-events: none; }
+.prize-docket { text-align: left; margin: 28px auto 0; max-width: 440px; }
+.prize-docket:focus { outline: 2px solid var(--stamp); outline-offset: 6px; }
+.prize-docket .stampline { text-align: center; margin: 14px 0 4px; }
+.prize-docket .fine:empty { display: none; }
+.mini-ask { margin-top: 16px; padding-top: 14px; border-top: var(--rule-w) dashed var(--rule-2); }
+.mini-ask p { font-family: var(--sans); font-size: 0.95rem; margin-bottom: 10px; }
+.mini-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.mini-ask .form .field { margin-bottom: 8px; }
+.mini-ask .form-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.mini-skip { background: none; border: 0; cursor: pointer; font-family: var(--mono); font-size: 0.8rem; text-decoration: underline; color: var(--ink-2); padding: 10px 4px; min-height: 44px; }
+.mini-skip:hover { color: var(--stamp-ink); }
+.rules-docket .body p { font-size: 0.95rem; }
+html[data-contrast="high"] .wheel-ring, html[data-contrast="high"] .hub { border-color: #000; }
+@media (prefers-reduced-motion: reduce) { #wheel { transition: none; } }

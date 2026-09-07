@@ -1,0 +1,17 @@
+/* Visit page: keep address, live status, hours, phone and directions in the first phone screen. */
+.visit-hero .visit-intro .lede { max-width: 44ch; }
+.visit-docket .line .amt a { color: inherit; text-decoration-color: var(--rule-2); }
+.visit-docket .line .amt a:hover { color: var(--stamp-ink); }
+.visit-docket .actions.tight { margin-top: 14px; }
+.map { min-height: 280px; }
+@media (max-width: 767px) {
+  .visit-hero { padding-top: 20px; }
+  .visit-hero h1 { font-size: 2rem; }
+  .visit-hero .visit-intro .lede { font-size: 1rem; margin-top: 0.6rem; }
+  .visit-hero .visit-intro .actions { margin-top: 16px; }
+  .visit-hero .visit-intro .actions .btn { flex: 1 1 40%; }
+  .visit-hero .grid-2 { gap: 22px; }
+  .visit-docket { padding: 22px 18px 24px; }
+  .visit-docket .line { margin: 2px 0; }
+  .map { aspect-ratio: 16 / 10; min-height: 0; }
+}

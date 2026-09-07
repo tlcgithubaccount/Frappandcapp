@@ -1,0 +1,306 @@
+{
+  "name": "Frapp & Capp",
+  "legalName": "Frapp & Capp Coffee Shack",
+  "parent": {
+    "name": "TLC Disability Services",
+    "longName": "Tender Loving Care Disability Services",
+    "url": "https://www.tenderlovingcaredisability.com.au/",
+    "impactUrl": "https://impact.tenderlovingcare.com.au/"
+  },
+  "domain": "https://frappandcapp.com",
+  "tagline": "Great coffee. Real careers.",
+  "altTaglines": [
+    "Coffee with a cause",
+    "Bankstown's cafe with a cause",
+    "Coffee was never really the point."
+  ],
+  "description": "Specialty coffee cafe and social enterprise in Bankstown NSW that trains and employs people with disability as baristas, at award wages.",
+  "address": {
+    "street": "1 West Terrace",
+    "suburb": "Bankstown",
+    "state": "NSW",
+    "postcode": "2200",
+    "country": "AU"
+  },
+  "geo": {
+    "lat": -33.9188405,
+    "lng": 151.0369769,
+    "_note": "Nominatim result for West Terrace Bankstown; confirm pin against Google Business Profile"
+  },
+  "mapsUrl": "https://maps.google.com/?q=1+West+Terrace+Bankstown+NSW+2200",
+  "mapsEmbed": "https://www.google.com/maps?q=1+West+Terrace+Bankstown+NSW+2200&output=embed",
+  "hours": {
+    "days": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "09:30",
+    "closes": "15:00",
+    "display": "Mon to Fri, 9:30am to 3pm",
+    "weekend": "Closed Saturday and Sunday",
+    "_note": "TODO confirm: live site shows both 9am and 9:30am; press from 2023 said Mon to Sat 7am to 3pm"
+  },
+  "phone": {
+    "display": "1300 998 885",
+    "tel": "+611300998885",
+    "_note": "TODO confirm: this is TLC's main number; cafe may have its own"
+  },
+  "email": "tlcdisability@gmail.com",
+  "email_note": "TODO: recommend a branded address such as hello@frappandcapp.com",
+  "instagram": "https://www.instagram.com/frappandcapp/",
+  "facebook": "https://www.facebook.com/TLCdisabilityservices/",
+  "hashtag": "#FrappAndCapp",
+  "opened": "2023-05-10",
+  "video": {
+    "youtubeId": "02dQXzPiK3c",
+    "title": "Frapp and Capp: More than just a coffee | Helping Hands TV feature"
+  },
+  "press": [
+    {
+      "outlet": "Hope 103.2",
+      "title": "Changing Lives, One Coffee at a Time",
+      "url": "https://hope1032.com.au/news/changing-lives-one-coffee-at-a-time-frapp-capp-cafe/"
+    },
+    {
+      "outlet": "Local News Plus",
+      "title": "Social enterprise cafe on boil to help young with disabilities",
+      "url": "https://localnewsplus.com.au/social-enterprise-cafe-on-boil-to-help-young-with-disabilities/"
+    },
+    {
+      "outlet": "Helping Hands, 9GEM",
+      "title": "TLC Disability Services: Frapp and Capp Cafe",
+      "url": "https://helpinghands.tv/broadcast/tlc-disability-services-frapp-and-capp-cafe/"
+    }
+  ],
+  "impact": {
+    "formula": "weekday trading days since 2023-05-10 minus ~11 public holidays a year, times 5.5 hours, times 1 employee, rounded to 10",
+    "valueOn2026-09-07": 5070,
+    "_note": "Conservative floor computed by the live site. Replace with real payroll figure when available."
+  },
+  "menu": {
+    "coffee": {
+      "sizes": "S $4.90 / L $5.90",
+      "altMilk": "+$0.80 oat, almond or soy",
+      "items": [
+        [
+          "Espresso",
+          "3.90"
+        ],
+        [
+          "Piccolo",
+          "3.90"
+        ],
+        [
+          "Long Black",
+          "4.90"
+        ],
+        [
+          "Cappuccino",
+          "4.90"
+        ],
+        [
+          "Flat White",
+          "4.90"
+        ],
+        [
+          "Latte",
+          "4.90"
+        ],
+        [
+          "Mocha",
+          "4.90"
+        ],
+        [
+          "Caramel Macchiato",
+          "4.90"
+        ],
+        [
+          "Chai Latte",
+          "4.90"
+        ],
+        [
+          "Dirty Chai",
+          "4.90"
+        ],
+        [
+          "Hot Chocolate",
+          "4.90"
+        ],
+        [
+          "Iced Coffee",
+          "5.90"
+        ],
+        [
+          "Iced Latte",
+          "5.90"
+        ],
+        [
+          "Iced Mocha",
+          "5.90"
+        ],
+        [
+          "Iced Frappe",
+          "5.90"
+        ]
+      ]
+    },
+    "tea": {
+      "note": "All teas $4.00, milk +$1.00",
+      "items": [
+        [
+          "English Breakfast",
+          "4.00"
+        ],
+        [
+          "Peppermint",
+          "4.00"
+        ],
+        [
+          "Chamomile",
+          "4.00"
+        ],
+        [
+          "Green Tea",
+          "4.00"
+        ],
+        [
+          "Ginger & Lemon",
+          "4.00"
+        ],
+        [
+          "Iced Tea",
+          "5.00"
+        ]
+      ]
+    },
+    "cold": {
+      "items": [
+        [
+          "Energy Drink",
+          "5.00"
+        ],
+        [
+          "Soft Drink",
+          "4.00"
+        ],
+        [
+          "Sports Drink",
+          "4.50"
+        ],
+        [
+          "Water Bottle",
+          "3.50"
+        ]
+      ]
+    },
+    "food": {
+      "note": "TODO confirm items and prices with the cafe; do not invent prices",
+      "items": [
+        [
+          "Toastie of the Day",
+          "Ask in store"
+        ],
+        [
+          "Light meals and snacks",
+          "Ask in store"
+        ]
+      ]
+    },
+    "milks": [
+      "Full cream",
+      "Oat",
+      "Soy",
+      "Almond",
+      "Lactose-free"
+    ],
+    "decaf": true,
+    "descriptions": {
+      "Cappuccino": "Our house Arabica, silky microfoam, notes of strawberry.",
+      "Iced Frappe": "Blended cold, built bold: the espresso equivalent of a high-five.",
+      "Toastie of the Day": "Made fresh, gone fast. Ask what's on today."
+    }
+  },
+  "beans": {
+    "name": "The House Blend",
+    "roast": "Medium-dark",
+    "notes": "Strawberry opening, round chocolatey finish, low acidity",
+    "bag": "250g compostable bag",
+    "origin": "100% Arabica, roasted and bagged in-house",
+    "price": "TODO confirm"
+  },
+  "pathway": [
+    [
+      "We start with the person",
+      "Goals, support needs, and travel and money-management skills, sorted out before anyone touches an espresso machine."
+    ],
+    [
+      "We train real barista skills",
+      "Grinding, dialling in, milk texture, front-of-house: a proper course, not a token placement."
+    ],
+    [
+      "We employ at award wages",
+      "A genuine job, on the roster, at the cafe on West Terrace, not a simulation of one."
+    ]
+  ],
+  "quotes": [
+    {
+      "text": "Before this job I'd never stood behind an espresso machine. Now it's a skill that's mine, on a team that treats me like family.",
+      "who": "Barista, Frapp & Capp"
+    },
+    {
+      "text": "Every shift I get better behind the machine. Long-term, I'd love to run a place of my own. This feels like the start of that.",
+      "who": "Barista, Frapp & Capp"
+    }
+  ],
+  "access": [
+    [
+      "Barrier-free access",
+      "Wide, uncluttered pathways and a lowered counter section for wheelchair-using baristas and guests."
+    ],
+    [
+      "Clear, calm menu boards",
+      "High-contrast, large-type signage with simple illustrations next to every item."
+    ],
+    [
+      "Take your time",
+      "No rush culture here. Sit, work, chat, or just watch the machine do its thing."
+    ]
+  ],
+  "pages": [
+    [
+      "index",
+      "Home"
+    ],
+    [
+      "menu",
+      "Menu"
+    ],
+    [
+      "visit",
+      "Visit"
+    ],
+    [
+      "shop-beans",
+      "Shop Beans"
+    ],
+    [
+      "our-story",
+      "Our Story"
+    ],
+    [
+      "careers",
+      "Careers"
+    ],
+    [
+      "spin-win",
+      "Spin & Win"
+    ]
+  ],
+  "formEndpoint": "",
+  "formEndpoint_note": "Set to a Formspree/Web3Forms/Basin URL. Empty = forms fall back to mailto.",
+  "gtmId": "",
+  "gtmId_note": "Set to GTM-XXXXXXX to enable Google Tag Manager in the layout."
+}

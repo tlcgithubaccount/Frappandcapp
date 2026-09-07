@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mobile frame</title>
+<style>
+  body { margin: 0; background: #888; }
+  iframe { display: block; width: 390px; height: 844px; border: 0; background: #fff; }
+</style>
+</head>
+<body>
+<iframe id="f" title="Mobile preview"></iframe>
+<script>
+  // Headless Chrome enforces a ~500px minimum window width, so true 390px captures go through this frame.
+  // Usage: mobile-frame.html?src=<url>&h=<iframe height, default 844>
+  var q = new URLSearchParams(location.search);
+  var f = document.getElementById('f');
+  if (q.get('h')) f.style.height = parseInt(q.get('h'), 10) + 'px';
+  f.src = q.get('src') || 'about:blank';
+</script>
+</body>
+</html>

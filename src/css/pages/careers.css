@@ -1,0 +1,15 @@
+/* Careers: FAQ (details/summary) in the docket voice, plain-language spacing */
+.faq { border-top: var(--rule-w2) dashed var(--rule-2); }
+.faq details { border-bottom: var(--rule-w2) dashed var(--rule-2); }
+.faq summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr 28px; align-items: center; gap: 16px; min-height: 56px; padding: 14px 0; font-family: var(--mono); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.02em; color: var(--ink); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-size: 1.4rem; line-height: 1; text-align: center; color: var(--stamp-ink); font-weight: 600; }
+.faq details[open] summary::after { content: "\2212"; }
+.faq summary:hover { color: var(--stamp-ink); }
+.faq summary:focus-visible { outline: 3px solid var(--stamp); outline-offset: 4px; border-radius: 4px; }
+.faq .faq-a { padding: 0 0 20px; max-width: 60ch; }
+.faq .faq-a p { font-size: 1.05rem; line-height: 1.6; }
+.page-careers .lede { max-width: 48ch; }
+.page-careers .list-rule.icons h3 { font-size: 1.15rem; }
+.page-careers .list-rule.icons p { font-size: 1rem; line-height: 1.55; }
+.page-careers .form .field .hint { font-size: 0.9rem; }

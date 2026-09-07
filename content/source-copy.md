@@ -1,0 +1,212 @@
+# Source copy from the live site (extracted 7 Sep 2026)
+
+
+## home
+
+- Specialty coffee · Bankstown NSW
+- Great coffee.
+- Real careers.
+- Every flat white poured at Frapp & Capp is pulled by a barista building skills, confidence, and a paycheck that's truly theirs. We make incredible specialty coffee, and we happen to change lives while doing it.
+- See the menu
+- Meet the team →
+- Follow us on Instagram →
+- Scroll
+- Flat white
+- ·
+- Iced frappe
+- Toastie of the day
+- House blend beans
+- Real careers
+- Bankstown NSW
+- Our impact
+- {{ hoursDisplay }}
+- hours of paid, meaningful employment created since we opened on West Terrace in 2023.
+- A conservative floor: five trading days a week, 9:30am–3pm, counting just one employee on shift. The real number is higher.
+- 2023
+- Opened our doors on West Terrace
+- Award
+- Fair wages for every barista, always
+- 100%
+- Arabica beans, roasted and bagged in-house
+- The craft
+- Trained on the tools that matter, not just the ones that are easy.
+- Our baristas complete a full training pathway: grinding, dialling in, milk texture, front-of-house, before they ever pull a shot for a customer. It's a real job with real standards, because that's what respect looks like.
+- Join the team →
+- On the menu
+- Small menu. Big craft.
+- Full menu →
+- Cappuccino
+- Our house Arabica, silky microfoam, notes of strawberry.
+- Iced Frappe
+- Blended cold, built bold: the espresso equivalent of a high-five.
+- Toastie of the Day
+- Made fresh, gone fast. Ask what's on today.
+- Come say hi. First coffee's a good excuse.
+- 1 West Terrace, Bankstown NSW · Mon–Fri, 9am–3pm
+- Get directions →
+
+## menu
+
+- The menu
+- Small menu.Made with care.
+- A tight, considered list, every item pulled, poured or plated by a Frapp & Capp barista. Ask us about milk alternatives; every option is priced the same.
+- Coffee
+- S $4.90
+- L $5.90
+- Alt milk (oat, almond, soy) + $0.80
+- Espresso
+- $3.90
+- Long Black
+- $4.90
+- Cappuccino
+- Mocha
+- Latte, Flat White
+- Caramel Macchiato
+- Piccolo
+- Chai Latte
+- Dirty Chai
+- Hot Chocolate
+- Iced Coffee
+- $5.90
+- Iced Latte
+- Iced Mocha
+- Tea
+- All teas $4.00
+- Milk +$1.00
+- English Breakfast
+- $4.00
+- Peppermint
+- Chamomile
+- Green Tea
+- Ginger & Lemon
+- Iced Tea
+- $5.00
+- Cold Drinks
+- Energy Drink
+- Soft Drink
+- Sports Drink
+- $4.50
+- Water Bottle
+- $3.50
+- Milk & dietary options
+- Full cream
+- Oat
+- Soy
+- Almond
+- Lactose-free
+- Decaf available
+- Alt milk + $0.80 on coffee, milk in tea + $1.00.
+
+## visit
+
+- Visit us
+- Come in, sit down, stay a while.
+- Address
+- 1 West Terrace
+- Bankstown NSW 2200
+- Hours
+- Monday
+- 9:30am – 3pm
+- Tuesday
+- Wednesday
+- Thursday
+- Friday
+- Saturday
+- Closed
+- Sunday
+- Contact
+- tlcdisability@gmail.com
+- Get directions →
+- Map: West Terrace, Bankstown NSW
+- Barrier-free access
+- Wide, uncluttered pathways and a lowered counter section for wheelchair-using baristas and guests.
+- Clear, calm menu boards
+- High-contrast, large-type signage with simple illustrations next to every item.
+- Take your time
+- No rush culture here. Sit, work, chat, or just watch the machine do its thing.
+
+## shop-beans
+
+- Take it home
+- The House Blend
+- 100% Arabica, medium-dark roast. Low in acidity, with bright opening notes of strawberry that settle into a round, chocolatey finish. The same beans behind every cup at the cafe — now for your kitchen counter.
+- Strawberry notes
+- Low acidity
+- Medium-dark roast
+- 250g compostable bag
+- Enquire to buy →
+- Grab a bag in-store
+- The story on the bag
+- Every bean roasted and bagged by our team.
+- Buying a bag does two things: it fills your grinder with genuinely good coffee, and it funds another hour of paid, meaningful work for someone building a career at Frapp & Capp.
+- A portion of every sale goes back into the TLC Impact Foundation, supporting more employment pathways for people with disability.
+- Wholesale & events
+- Café, office, or event: we supply bulk bags and can talk through pour-over vs. filter setups.
+- Sell it in your store
+- Stock our beans and put your shelf behind an inclusive employer. Get in touch to talk terms.
+- Want to buy, stock, or ask a question?
+- Send us a note below, or email us directly. A real person from the team will get back to you.
+- Name
+- Email
+- Message
+- Send enquiry →
+- Thanks — your email app should have opened with your message ready to send.
+
+## our-story
+
+- Our story
+- Coffee was never really the point.
+- Frapp & Capp is a social enterprise café from TLC Disability Services, built to close a gap most people never see: how hard it is for someone with a disability to land a first real job. We picked coffee because everyone understands a good cup, and because the skills it teaches translate everywhere.
+- Watch our story
+- How it works
+- Three steps, one pathway.
+- 1
+- We start with the person
+- Goals, support needs, and travel and money-management skills, sorted out before anyone touches a espresso machine.
+- 2
+- We train real barista skills
+- Grinding, milk texture, front-of-house: a proper course, not a token placement.
+- 3
+- We employ at award wages
+- A genuine job, on the roster, at the cafe on West Terrace, not a simulation of one.
+- From the team
+- In their words.
+- "Before this job I'd never stood behind an espresso machine. Now it's a skill that's mine, on a team that treats me like family."
+- Barista, Frapp & Capp
+- "Every shift I get better behind the machine. Long-term, I'd love to run a place of my own. This feels like the start of that."
+- Disability is not a barrier to a great career.
+- That's the whole premise of Frapp & Capp, and every cup poured here proves it a little more.
+- See open roles →
+
+## careers
+
+- Join the team
+- Your first real job could start with a shift here.
+- Frapp & Capp trains and employs people with disability as baristas and front-of-house staff, at award wages, with support built in from day one.
+- What you get
+- More than a training placement.
+- Real barista training
+- Grinding, dialling in, milk texture, front-of-house: a full course before your first customer shift.
+- Award wages
+- Paid fairly for the work you do, on a proper roster, not a volunteer or work-experience arrangement.
+- Everyday support
+- Travel training, money management, and a team that has your back on and off shift.
+- How to apply
+- Three simple steps.
+- 01
+- Send us a message
+- Tell us a bit about yourself and what you're hoping to learn.
+- 02
+- Have a chat with the team
+- A relaxed conversation about your goals, support needs, and interests. No pressure.
+- 03
+- Start training
+- Move into our barista training pathway, at your own pace, toward a paid role.
+- Ready to talk?
+- Fill in your details below and someone from the team will follow up personally.
+- Name
+- Email
+- Phone (optional)
+- Tell us a bit about yourself
+- Enquire now →
+- Thanks — your email app should have opened with your enquiry ready to send.

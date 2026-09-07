@@ -1,0 +1,236 @@
+<!-- meta {"title":"Spin & Win | Frapp & Capp, Bankstown","description":"Spin the wheel at Frapp & Capp in Bankstown for a chance at a free coffee, size upgrade, biscuit or discount. No app or sign-up: spin, then show the barista.","priority":0.5,"ogImage":"/assets/og-spin-win.jpg","extraHead":"<link rel=\"stylesheet\" href=\"/css/pages/spin-win.css\">"} -->
+<section class="page-hero" aria-labelledby="h1">
+  <div class="wrap grid-2 wide-left center">
+    <div>
+      <p class="eyebrow">In-store extra</p>
+      <h1 id="h1">Spin &amp; Win.</h1>
+      <p class="lede">One spin per customer, with a coffee order. No app and no sign-up: spin the wheel, then show the barista your prize docket at the counter.</p>
+    </div>
+    <div class="docket plain">
+      <img class="docket-mark" src="/assets/logo-mark.webp" alt="" width="18" height="30">
+      <div class="hd">On the wheel</div>
+      <hr class="rule">
+      <div class="line"><span class="q">1</span><span class="lbl">Free coffee</span><span class="dots"></span><span class="amt note">free</span></div>
+      <div class="line"><span class="q">1</span><span class="lbl">Size up, S to L</span><span class="dots"></span><span class="amt note">free</span></div>
+      <div class="line"><span class="q">1</span><span class="lbl">Free biscuit</span><span class="dots"></span><span class="amt note">free</span></div>
+      <div class="line"><span class="q">1</span><span class="lbl">10% off this order</span><span class="dots"></span><span class="amt">10% off</span></div>
+      <div class="line"><span class="q">1</span><span class="lbl">10% off next visit</span><span class="dots"></span><span class="amt">10% off</span></div>
+      <hr class="rule">
+      <div class="fine">Valid with a coffee order, one spin per customer per day.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight" aria-labelledby="wheel-h">
+  <div class="wrap-narrow spin-stage">
+    <h2 id="wheel-h" class="visually-hidden">The wheel</h2>
+    <div class="wheel-wrap">
+      <div class="pointer" aria-hidden="true"></div>
+      <div class="wheel-ring">
+        <svg id="wheel" viewBox="0 0 400 400" role="img" aria-label="Prize wheel with eight segments: size upgrade, thank you, 10% off this order, thank you, free biscuit, thank you, 10% off your next visit, free coffee"></svg>
+      </div>
+      <div class="hub" aria-hidden="true"><img src="/assets/logo-mark.webp" alt="" width="26" height="44"></div>
+    </div>
+    <p class="spin-actions"><button class="btn btn-primary spin-btn" id="spinBtn" type="button">Spin the wheel</button></p>
+    <noscript><p class="muted">The wheel needs JavaScript to spin. No worries: ask the barista for a spin at the counter.</p></noscript>
+    <div class="visually-hidden" role="status" aria-live="polite" id="liveRegion"></div>
+
+    <div class="docket prize-docket" id="result" hidden tabindex="-1" aria-labelledby="prize-hd">
+      <img class="docket-mark" src="/assets/logo-mark.webp" alt="" width="18" height="30">
+      <div class="hd" id="prize-hd">Prize docket</div>
+      <div class="sub">Frapp &amp; Capp &middot; {{suburb}} &middot; <span id="prizeDate"></span></div>
+      <hr class="rule">
+      <div class="line"><span class="q">1</span><span class="lbl plain" id="prizeName"></span><span class="dots"></span><span class="amt note" id="prizeAmt"></span></div>
+      <p class="desc" id="prizeMsg"></p>
+      <div id="redeemBox" hidden>
+        <div class="line"><span class="lbl">Code</span><span class="dots"></span><span class="amt" id="redeemCode"></span></div>
+        <div class="line"><span class="lbl">Valid</span><span class="dots"></span><span class="amt">Today only</span></div>
+        <div class="stampline"><span class="stamp flat">Show the barista</span></div>
+      </div>
+      <div class="fine" id="againNote"></div>
+
+      <div class="mini-ask" id="firstVisitAsk" hidden>
+        <p>Quick one: first time at Frapp &amp; Capp?</p>
+        <div class="mini-btns">
+          <button type="button" class="btn btn-sm" data-first="yes">First time</button>
+          <button type="button" class="btn btn-sm" data-first="no">I'm a regular</button>
+        </div>
+      </div>
+
+      <div class="mini-ask" id="notifyAsk" hidden>
+        <p>Want a heads-up when seasonal drinks and new prizes drop? Totally optional.</p>
+        <form class="form" data-form="spin-win-notify" data-mailto-subject="Spin and Win: notify me" id="notifyForm">
+          <div class="field"><label for="notify-email">Email</label><input id="notify-email" name="email" type="email" autocomplete="email" required><span class="err" aria-live="polite"></span></div>
+          <input type="hidden" name="message" value="Please let me know about seasonal drinks and new Spin and Win prizes.">
+          <div class="hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="form-actions"><button class="btn btn-primary btn-sm" type="submit">Notify me</button><button type="button" class="mini-skip" id="notifySkip">No thanks</button></div>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="how-h">
+  <div class="wrap grid-2 wide-left">
+    <div>
+      <p class="eyebrow">How it works</p>
+      <h2 id="how-h">Three steps, one coffee.</h2>
+      <ol class="steps">
+        <li><div><h3>Order a coffee, then tap spin</h3><p>Give the wheel a whirl. One spin per customer, per day.</p></div></li>
+        <li><div><h3>Read your prize docket</h3><p>Your result prints on screen straight away, with a code and today's date.</p></div></li>
+        <li><div><h3>Show our team</h3><p>Reveal the docket at the counter to redeem it before you leave.</p></div></li>
+      </ol>
+      <p class="lede">Every cup and every spin funds meaningful employment for our team.</p>
+      <p><a class="textlink" href="/visit/">Find our Bankstown cafe</a></p>
+    </div>
+    <div class="docket plain rules-docket">
+      <img class="docket-mark" src="/assets/logo-mark.webp" alt="" width="18" height="30">
+      <div class="hd">The fine print</div>
+      <hr class="rule">
+      <div class="body">
+        <p>Valid with a coffee order, one spin per customer per day.</p>
+        <p>Prizes cannot be exchanged for cash.</p>
+        <p>Show the winning docket to our team to redeem it before you leave.</p>
+        <p>Frapp &amp; Capp reserves the right to vary this promotion.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  'use strict';
+  var svg = document.getElementById('wheel');
+  var spinBtn = document.getElementById('spinBtn');
+  if (!svg || !spinBtn) return;
+
+  var cx = 200, cy = 200, r = 188;
+  var ink = '#10284A', paper = '#F6F1E7';
+  /* Matches the odds table in the Spin & Win promo proposal. Colours are the brand set;
+     label ink is navy on light segments and paper on the deep orange one. */
+  var prizes = [
+    { key: 'upgrade', label: 'Size up\nS to L', pct: 22.4, color: '#8AD0EA', text: ink, win: true, amt: 'free', name: 'Size upgrade', msg: 'Show this docket to our barista for a free size upgrade, small to large, with your order today.' },
+    { key: 'again1', label: 'Thank\nyou', pct: 11.2, color: '#DCC9A3', text: ink, win: false },
+    { key: 'order10', label: '10% off\nthis order', pct: 13.8, color: '#F4C24C', text: ink, win: true, amt: '10% off', name: '10% off this order', msg: 'Show this docket to our barista for 10% off the order you are about to make.' },
+    { key: 'again2', label: 'Thank\nyou', pct: 11.2, color: '#DCC9A3', text: ink, win: false },
+    { key: 'biscuit', label: 'Free\nbiscuit', pct: 12.1, color: '#EF9B44', text: ink, win: true, amt: 'free', name: 'Free biscuit', msg: 'Show this docket to our barista to claim a free biscuit with your purchase today.' },
+    { key: 'again3', label: 'Thank\nyou', pct: 11.2, color: '#DCC9A3', text: ink, win: false },
+    { key: 'next10', label: 'Next visit\n10% off', pct: 13.8, color: '#8AD0EA', text: ink, win: true, amt: '10% off', name: '10% off your next visit', msg: 'Show this docket next time you order for 10% off that visit.' },
+    { key: 'coffee', label: 'Free\ncoffee', pct: 4.3, color: '#DC7A2A', text: paper, win: true, amt: 'free', name: 'Free coffee', msg: 'Show this docket to our barista to claim a free coffee with your purchase today.' }
+  ];
+
+  /* Probability boundaries (unequal, from the odds table) decide the prize. Equal visual
+     slices decide how the wheel is drawn and where it visibly lands. */
+  var totalPct = prizes.reduce(function (s, p) { return s + p.pct; }, 0);
+  var angle = 0;
+  prizes.forEach(function (p) { p.start = angle; p.width = (p.pct / totalPct) * 360; p.end = p.start + p.width; angle = p.end; });
+  var visualWidth = 360 / prizes.length;
+  prizes.forEach(function (p, i) { p.visualStart = i * visualWidth; p.visualEnd = (i + 1) * visualWidth; });
+
+  function polar(cx, cy, r, deg) { var rad = (deg - 90) * Math.PI / 180; return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) }; }
+  var ns = 'http://www.w3.org/2000/svg';
+  prizes.forEach(function (p) {
+    var p0 = polar(cx, cy, r, p.visualStart), p1 = polar(cx, cy, r, p.visualEnd);
+    var path = document.createElementNS(ns, 'path');
+    path.setAttribute('d', 'M ' + cx + ' ' + cy + ' L ' + p0.x + ' ' + p0.y + ' A ' + r + ' ' + r + ' 0 0 1 ' + p1.x + ' ' + p1.y + ' Z');
+    path.setAttribute('fill', p.color); path.setAttribute('stroke', '#FFFDF8'); path.setAttribute('stroke-width', '3');
+    svg.appendChild(path);
+    var mid = p.visualStart + visualWidth / 2, lp = polar(cx, cy, r * 0.64, mid);
+    var lines = p.label.split('\n'), fontSize = 14, lineHeight = fontSize + 3;
+    var text = document.createElementNS(ns, 'text');
+    text.setAttribute('x', lp.x); text.setAttribute('y', lp.y - (lines.length * lineHeight) / 2 + fontSize * 0.7);
+    text.setAttribute('text-anchor', 'middle'); text.setAttribute('fill', p.text);
+    text.setAttribute('font-family', "Fredoka, Nunito, sans-serif"); text.setAttribute('font-weight', '600'); text.setAttribute('font-size', fontSize);
+    text.setAttribute('transform', 'rotate(' + mid + ' ' + lp.x + ' ' + lp.y + ')');
+    lines.forEach(function (line, i) { var t = document.createElementNS(ns, 'tspan'); t.setAttribute('x', lp.x); t.setAttribute('dy', i === 0 ? 0 : lineHeight); t.textContent = line; text.appendChild(t); });
+    svg.appendChild(text);
+  });
+
+  var resultEl = document.getElementById('result'), liveRegion = document.getElementById('liveRegion');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var currentRotation = 0, STORAGE_KEY = 'fc_spin_win', FIRST_VISIT_KEY = 'fc_first_visit', NOTIFY_KEY = 'fc_notify_optin';
+  function todayStr() { return new Date().toISOString().slice(0, 10); }
+  function todayDisplay() { try { return new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Australia/Sydney' }).format(new Date()); } catch (e) { return todayStr(); } }
+  function randomCode() { return Math.random().toString(36).slice(2, 6).toUpperCase(); }
+  function track(name, params) { try { window.dataLayer = window.dataLayer || []; window.dataLayer.push(Object.assign({ event: name }, params || {})); if (typeof window.gtag === 'function') window.gtag('event', name, params || {}); } catch (e) {} }
+  function byId(id) { return document.getElementById(id); }
+  function answeredToday(key) { try { var s = JSON.parse(localStorage.getItem(key) || 'null'); return !!(s && s.date === todayStr()); } catch (e) { return false; } }
+
+  function showResult(prize, code, isReplay) {
+    byId('prizeDate').textContent = todayDisplay();
+    byId('prizeName').textContent = prize.win ? prize.name : 'Thanks for spinning';
+    byId('prizeAmt').textContent = prize.win ? prize.amt : 'next time';
+    byId('prizeMsg').textContent = prize.win ? prize.msg : 'No prize this round, but every cup here funds real, meaningful jobs for our team. Come back tomorrow for another spin.';
+    var box = byId('redeemBox');
+    box.hidden = !prize.win;
+    if (prize.win) byId('redeemCode').textContent = code;
+    byId('againNote').textContent = isReplay ? 'You already spun today. Here is what you won. See you tomorrow for another spin.' : '';
+    resultEl.hidden = false;
+    liveRegion.textContent = (prize.win ? 'You won: ' + prize.name + '. ' + prize.msg : 'No prize this time. Come back tomorrow for another spin.');
+    if (!isReplay) resultEl.focus();
+    if (!answeredToday(FIRST_VISIT_KEY)) byId('firstVisitAsk').hidden = false;
+    if (!answeredToday(NOTIFY_KEY)) byId('notifyAsk').hidden = false;
+  }
+  function lockSpinButton() { spinBtn.setAttribute('aria-disabled', 'true'); spinBtn.textContent = 'Spun for today'; }
+
+  var firstAsk = byId('firstVisitAsk');
+  Array.prototype.forEach.call(firstAsk.querySelectorAll('[data-first]'), function (btn) {
+    btn.addEventListener('click', function () {
+      var isFirst = btn.getAttribute('data-first') === 'yes';
+      try { localStorage.setItem(FIRST_VISIT_KEY, JSON.stringify({ date: todayStr(), isFirst: isFirst })); } catch (e) {}
+      track('spin_win_first_visit', { is_first_visit: isFirst });
+      firstAsk.innerHTML = '<p>' + (isFirst ? 'Welcome to Frapp &amp; Capp. Glad you found us.' : 'Great to see you again.') + '</p>';
+    });
+  });
+  var notifyForm = byId('notifyForm'), notifyAsk = byId('notifyAsk');
+  notifyForm.addEventListener('submit', function () {
+    try { localStorage.setItem(NOTIFY_KEY, JSON.stringify({ date: todayStr(), asked: true })); } catch (e) {}
+    track('spin_win_notify_optin', {});
+  });
+  byId('notifySkip').addEventListener('click', function () {
+    try { localStorage.setItem(NOTIFY_KEY, JSON.stringify({ date: todayStr(), skipped: true })); } catch (e) {}
+    notifyAsk.hidden = true;
+  });
+
+  function pickPrize() {
+    var roll = Math.random() * 360, chosen = prizes[prizes.length - 1];
+    for (var i = 0; i < prizes.length; i++) { if (roll >= prizes[i].start && roll < prizes[i].end) { chosen = prizes[i]; break; } }
+    var inset = visualWidth * 0.15;
+    return { prize: chosen, landing: chosen.visualStart + inset + Math.random() * (visualWidth - 2 * inset) };
+  }
+  function finish(picked) {
+    var code = picked.prize.win ? randomCode() : null;
+    showResult(picked.prize, code, false);
+    lockSpinButton();
+    track('spin_win_result', { prize: picked.prize.key, won: picked.prize.win });
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ date: todayStr(), prizeKey: picked.prize.key, code: code, rotation: currentRotation })); } catch (e) {}
+  }
+  function spin() {
+    if (spinBtn.getAttribute('aria-disabled') === 'true') return;
+    spinBtn.setAttribute('aria-disabled', 'true');
+    spinBtn.textContent = 'Spinning';
+    liveRegion.textContent = 'Spinning the wheel.';
+    var picked = pickPrize();
+    var extraTurns = 5 + Math.floor(Math.random() * 2);
+    currentRotation += extraTurns * 360 + (360 - picked.landing);
+    if (reduce) { svg.style.transition = 'none'; svg.style.transform = 'rotate(' + currentRotation + 'deg)'; setTimeout(function () { finish(picked); }, 250); return; }
+    svg.style.transform = 'rotate(' + currentRotation + 'deg)';
+    setTimeout(function () { finish(picked); }, 4600);
+  }
+  spinBtn.addEventListener('click', spin);
+
+  /* Restore today's result if the visitor already spun. */
+  try {
+    var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+    if (saved && saved.date === todayStr()) {
+      var prize = prizes.filter(function (p) { return p.key === saved.prizeKey; })[0];
+      if (prize) {
+        currentRotation = saved.rotation || 0;
+        svg.style.transition = 'none'; svg.style.transform = 'rotate(' + currentRotation + 'deg)';
+        showResult(prize, saved.code, true); lockSpinButton();
+      }
+    }
+  } catch (e) {}
+})();
+</script>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+{{robots}}
+<link rel="canonical" href="{{canonical}}">
+<meta property="og:site_name" content="{{siteName}}">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:type" content="{{ogType}}">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:image" content="{{ogImage}}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_AU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{title}}">
+<meta name="twitter:description" content="{{description}}">
+<meta name="twitter:image" content="{{ogImage}}">
+<meta name="theme-color" content="#10284A">
+<link rel="icon" href="/assets/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<script>
+/* Pre-paint: apply saved reading preferences before CSS loads so nothing flashes. */
+try{var d=document.documentElement,s=localStorage;if(s.getItem('fc-text')==='big')d.setAttribute('data-text','big');if(s.getItem('fc-contrast')==='high')d.setAttribute('data-contrast','high');}catch(e){}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="/css/site.css">
+{{extraHead}}
+<script type="application/ld+json">{{schema}}</script>
+</head>
+<body class="{{bodyClass}}" data-form-endpoint="{{formEndpoint}}" data-gtm-id="{{gtmId}}" data-email="{{email}}">
+<a class="skip" href="#main">Skip to content</a>
+{{partial:nav}}
+<main id="main">
+{{content}}
+</main>
+{{partial:footer}}
+<script src="/js/site.js" defer></script>
+<script>
+/* Google Tag Manager loads only when content/site.json has a gtmId (the build injects it as
+   data-gtm-id on <body>). Leave gtmId empty and no tracking script is ever requested. */
+(function(){var id=document.body.getAttribute('data-gtm-id');if(!id)return;window.dataLayer=window.dataLayer||[];window.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtm.js?id='+encodeURIComponent(id);document.head.appendChild(s);})();
+</script>
+</body>
+</html>

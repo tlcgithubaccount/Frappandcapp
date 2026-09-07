@@ -1,0 +1,7 @@
+dist/
+audits/**/lh-*.json
+audits/**/.chrome-*
+og/tmp/
+directions/*/shot-*.png
+.DS_Store
+dist-*/

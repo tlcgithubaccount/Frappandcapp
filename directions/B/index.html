@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Frapp & Capp | Specialty Coffee Cafe in Bankstown NSW</title>
+<meta name="description" content="Specialty coffee at 1 West Terrace, Bankstown, poured by baristas building real careers at award wages. Menu, hours, house-roasted beans and open roles.">
+<link rel="canonical" href="https://frappandcapp.com/">
+<meta name="theme-color" content="#F6F1E7">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Frapp & Capp">
+<meta property="og:title" content="Frapp & Capp | Specialty Coffee Cafe in Bankstown NSW">
+<meta property="og:description" content="Great coffee. Real careers. Same docket. A specialty coffee cafe and social enterprise at 1 West Terrace, Bankstown.">
+<meta property="og:url" content="https://frappandcapp.com/">
+<meta property="og:image" content="../../assets/og-home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_AU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Frapp & Capp | Specialty Coffee Cafe in Bankstown NSW">
+<meta name="twitter:description" content="Great coffee. Real careers. Same docket. A specialty coffee cafe and social enterprise at 1 West Terrace, Bankstown.">
+<meta name="twitter:image" content="../../assets/og-home.jpg">
+<link rel="icon" href="../../assets/favicon.ico" sizes="32x32">
+<link rel="icon" href="../../assets/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="../../assets/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;900&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+  :root {
+    --paper: #F6F1E7;
+    --docket: #FFFDF8;
+    --ink: #10284A;
+    --ink-2: #5B6478;
+    --rule: #D9D0BF;
+    --rule-2: #C9BEA8;
+    --stamp: #EA7424;
+    --stamp-ink: #A8470B;
+    --sky: #8AD0EA;
+    --band: #10284A;
+    --band-text: #F6F1E7;
+    --band-muted: #B7C0D1;
+    --shadow: 0 1px 0 rgba(16,40,74,.06), 0 14px 34px rgba(16,40,74,.12);
+    --sans: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+    --mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, Consolas, monospace;
+    --max: 1120px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+  a:hover { color: var(--stamp-ink); }
+  :focus-visible { outline: 3px solid var(--stamp); outline-offset: 3px; border-radius: 2px; }
+  h1, h2, h3 { font-family: var(--sans); font-weight: 900; line-height: 1.02; letter-spacing: -0.02em; margin: 0; text-wrap: balance; }
+  h1 { font-size: clamp(40px, 6.2vw, 72px); }
+  h2 { font-size: clamp(30px, 4vw, 46px); }
+  h3 { font-size: 22px; letter-spacing: -0.01em; }
+  p { margin: 0; max-width: 60ch; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding-left: 20px; padding-right: 20px; }
+  .eyebrow { font-family: var(--mono); font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--stamp-ink); margin: 0 0 14px; }
+  .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  .skip { position: absolute; left: 12px; top: -60px; background: var(--ink); color: var(--paper); padding: 10px 14px; font-family: var(--mono); z-index: 100; }
+  .skip:focus { top: 12px; }
+
+  /* Counter bar */
+  .bar { position: sticky; top: 0; z-index: 50; background: rgba(246,241,231,.92); backdrop-filter: blur(8px); border-bottom: 1.5px solid var(--rule); }
+  .bar-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 66px; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 900; font-size: 20px; letter-spacing: -0.02em; min-height: 44px; }
+  .brand img { width: 26px; height: 44px; }
+  .brand .amp { color: var(--stamp); }
+  .nav { display: flex; align-items: center; gap: 4px; }
+  .nav a { font-family: var(--mono); font-size: 14px; font-weight: 600; letter-spacing: 0.02em; text-decoration: none; padding: 10px 12px; min-height: 44px; display: inline-flex; align-items: center; border-radius: 4px; }
+  .nav a[aria-current] { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; text-decoration-color: var(--stamp); }
+  .nav a:hover { background: rgba(16,40,74,.06); color: var(--ink); }
+  .nav .cta { margin-left: 8px; background: var(--ink); color: var(--paper); padding: 10px 16px; }
+  .nav .cta:hover { background: var(--stamp); color: var(--ink); }
+  .navtoggle { display: none; font-family: var(--mono); font-weight: 600; font-size: 14px; letter-spacing: 0.04em; background: transparent; color: var(--ink); border: 1.5px solid var(--ink); border-radius: 4px; min-height: 44px; padding: 0 14px; cursor: pointer; }
+  @media (max-width: 767px) {
+    .navtoggle { display: inline-flex; align-items: center; gap: 8px; }
+    .nav { display: none; position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; align-items: stretch; background: var(--docket); border-bottom: 1.5px solid var(--rule); padding: 8px 12px 14px; box-shadow: var(--shadow); }
+    .nav.open { display: flex; }
+    .nav a { font-size: 16px; padding: 12px; }
+    .nav .cta { margin: 8px 0 0; justify-content: center; }
+  }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 22px; border-radius: 4px; font-family: var(--mono); font-weight: 600; font-size: 15px; letter-spacing: 0.02em; text-decoration: none; border: 2px solid var(--ink); color: var(--ink); background: transparent; cursor: pointer; transition: transform .15s ease, background .15s ease; }
+  .btn:hover { transform: translateY(-1px); background: rgba(16,40,74,.06); color: var(--ink); }
+  .btn-primary { background: var(--stamp); border-color: var(--stamp); color: var(--ink); }
+  .btn-primary:hover { background: #F08A3E; border-color: #F08A3E; }
+  .btn-ink { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .btn-ink:hover { background: var(--stamp); border-color: var(--stamp); color: var(--ink); }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .textlink { font-family: var(--mono); font-weight: 600; font-size: 15px; }
+
+  /* Docket paper */
+  .docket { position: relative; background: var(--docket); color: var(--ink); font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 15px; line-height: 1.5; padding: 26px 22px 30px; box-shadow: var(--shadow); }
+  .hero-docket.docket { font-size: 14px; }
+  .docket::before { content: ""; position: absolute; left: 0; right: 0; top: -7px; height: 14px; background: radial-gradient(circle at 8px 7px, var(--paper) 4px, transparent 4.6px) 0 0 / 16px 14px repeat-x; }
+  .docket::after { content: ""; position: absolute; left: 0; right: 0; bottom: -9px; height: 9px; background: linear-gradient(135deg, var(--docket) 50%, transparent 50%) 0 0 / 14px 9px repeat-x, linear-gradient(225deg, var(--docket) 50%, transparent 50%) 0 0 / 14px 9px repeat-x; }
+  .docket .hd { text-align: center; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+  .docket .sub { text-align: center; font-size: 12px; color: var(--ink-2); letter-spacing: 0.02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .rule { border: 0; border-top: 2px dashed var(--rule-2); margin: 14px 0; }
+  .line { display: flex; align-items: baseline; gap: 8px; margin: 6px 0; }
+  .line .q { flex: 0 0 2ch; color: var(--ink-2); }
+  .line .lbl { flex: 0 1 auto; text-transform: uppercase; letter-spacing: 0.04em; }
+  .line .dots { flex: 1 1 8px; min-width: 8px; border-bottom: 2px dotted var(--rule-2); transform: translateY(-5px); }
+  .line .amt { flex: 0 0 auto; font-weight: 600; }
+  .line.total { font-weight: 600; font-size: 17px; margin-top: 10px; }
+  .line.total .lbl { letter-spacing: 0.1em; }
+  .line .note { color: var(--stamp-ink); font-weight: 600; }
+  .docket .fine { font-size: 13px; color: var(--ink-2); text-align: center; margin-top: 4px; }
+  .docket .thanks { text-align: center; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 12px; }
+
+  .stamp { display: inline-block; font-family: var(--mono); font-weight: 600; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--stamp-ink); border: 3px solid var(--stamp); border-radius: 6px; padding: 6px 10px; transform: rotate(-6deg); background: rgba(255,253,248,.85); }
+  .stamp.live::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--sky); margin-right: 8px; box-shadow: 0 0 0 2px rgba(138,208,234,.35); vertical-align: 1px; }
+
+  /* Print-in motion */
+  @keyframes print { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .print > * { animation: print .32s ease-out both; animation-delay: calc(var(--i, 0) * 70ms); }
+  @media (prefers-reduced-motion: reduce) { .print > * { animation: none; } .btn { transition: none; } }
+
+  /* Hero */
+  .hero { padding: 40px 0 64px; }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center; }
+  .hero h1 .alt { color: var(--stamp-ink); display: block; }
+  .lede { font-size: 19px; color: var(--ink-2); margin-top: 22px; max-width: 52ch; }
+  .hero-stage { position: relative; min-height: 560px; }
+  .hero-photo { margin: 0; position: absolute; right: 0; top: 0; width: 62%; height: 100%; }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; border-radius: 6px; filter: saturate(.92); }
+  .hero-docket { position: absolute; left: 0; bottom: 24px; width: 68%; max-width: 400px; transform: rotate(-1.5deg); }
+  .hero-stamp { position: absolute; right: 18px; top: 18px; }
+  .hero-facts { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 8px 28px; font-family: var(--mono); font-size: 13px; color: var(--ink-2); letter-spacing: 0.04em; }
+  .hero-facts b { color: var(--ink); font-weight: 600; }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+    .hero-stage { min-height: 0; display: flex; flex-direction: column; gap: 22px; }
+    .hero-photo { position: relative; width: 100%; height: 300px; margin-top: 0; order: 2; }
+    .hero-photo img { object-position: 50% 30%; }
+    .hero-docket { position: relative; width: 100%; max-width: 440px; bottom: auto; transform: none; margin: 8px auto 0; order: 1; }
+  }
+  @media (max-width: 767px) {
+    .hero { padding: 24px 0 48px; }
+    .lede { font-size: 17px; margin-top: 16px; }
+    .actions { margin-top: 20px; }
+    .actions .btn { flex: 1 1 auto; }
+  }
+
+  /* Running total band */
+  .band { background: var(--band); color: var(--band-text); padding: 64px 0; }
+  .band .eyebrow { color: var(--stamp); }
+  .band-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: end; }
+  .bignum { font-family: var(--mono); font-weight: 600; font-size: clamp(64px, 10vw, 120px); line-height: .95; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+  .band .what { font-size: 22px; margin-top: 12px; max-width: 26ch; line-height: 1.3; font-weight: 500; }
+  .band .caveat { color: var(--band-muted); font-size: 14px; margin-top: 16px; max-width: 46ch; font-family: var(--mono); line-height: 1.5; }
+  .band .line { color: var(--band-text); font-family: var(--mono); font-size: 15px; margin: 10px 0; }
+  .band .line .dots { border-color: rgba(246,241,231,.35); }
+  .band .line .amt { color: var(--stamp); }
+  .band .line .lbl { text-transform: none; letter-spacing: 0; }
+  @media (max-width: 767px) { .band { padding: 48px 0; } .band-grid { grid-template-columns: 1fr; gap: 28px; } }
+
+  /* Build your order */
+  .order { padding: 80px 0; }
+  .order-head { max-width: 62ch; margin-bottom: 36px; }
+  .order-head p { margin-top: 14px; color: var(--ink-2); font-size: 18px; }
+  .order-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .menu-list { list-style: none; margin: 0; padding: 0; }
+  .menu-list li.group { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-2); padding: 18px 0 8px; border-bottom: 1.5px solid var(--rule); margin-bottom: 4px; }
+  .menu-list li.item { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--rule); }
+  .menu-list .nm { font-weight: 500; }
+  .menu-list .nm small { display: block; font-family: var(--mono); font-size: 12px; color: var(--ink-2); font-weight: 400; letter-spacing: 0.02em; }
+  .menu-list .pr { font-family: var(--mono); font-variant-numeric: tabular-nums; font-weight: 600; min-width: 5ch; text-align: right; }
+  .qty { display: inline-flex; align-items: center; border: 1.5px solid var(--ink); border-radius: 4px; overflow: hidden; }
+  .qty button { width: 44px; height: 44px; border: 0; background: transparent; color: var(--ink); font-family: var(--mono); font-size: 20px; font-weight: 600; cursor: pointer; }
+  .qty button:hover { background: rgba(16,40,74,.08); }
+  .qty output { min-width: 34px; text-align: center; font-family: var(--mono); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .order-docket { position: sticky; top: 90px; }
+  .order-docket .line.empty { color: var(--ink-2); }
+  .altmilk { display: flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 14px; margin: 12px 0 4px; cursor: pointer; min-height: 44px; }
+  .altmilk input { width: 20px; height: 20px; accent-color: var(--stamp); margin: 0; }
+  .skills { list-style: none; margin: 8px 0 0; padding: 0; }
+  .skills li { display: flex; gap: 10px; align-items: baseline; margin: 6px 0; text-transform: uppercase; letter-spacing: 0.04em; font-size: 14px; }
+  .skills li::before { content: "\2713"; color: var(--stamp-ink); font-weight: 600; }
+  .skills li.base { color: var(--ink-2); }
+  .order-docket .after { font-family: var(--sans); font-size: 15px; color: var(--ink-2); margin-top: 14px; }
+  @media (max-width: 900px) { .order-grid { grid-template-columns: 1fr; } .order-docket { position: static; } }
+  @media (max-width: 767px) { .order { padding: 56px 0; } }
+
+  /* Pathway */
+  .pathway { padding: 0 0 80px; }
+  .path-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; align-items: center; }
+  .path-photo { margin: 0; }
+  .path-photo img { width: 100%; height: 520px; object-fit: cover; object-position: 30% 40%; border-radius: 6px; }
+  .path-photo figcaption { font-family: var(--mono); font-size: 13px; color: var(--ink-2); margin-top: 10px; letter-spacing: 0.02em; }
+  .steps { list-style: none; margin: 28px 0 0; padding: 0; counter-reset: step; }
+  .steps li { display: grid; grid-template-columns: 4ch 1fr; gap: 14px; padding: 18px 0; border-top: 1.5px dashed var(--rule-2); }
+  .steps li::before { counter-increment: step; content: "0" counter(step); font-family: var(--mono); font-weight: 600; font-size: 22px; color: var(--stamp-ink); line-height: 1.1; }
+  .steps h3 { margin-bottom: 4px; }
+  .steps p { color: var(--ink-2); font-size: 16px; }
+  .path-grid > div > p { margin-top: 18px; color: var(--ink-2); font-size: 18px; }
+  @media (max-width: 900px) { .path-grid { grid-template-columns: 1fr; gap: 28px; } .path-photo img { height: 320px; } }
+
+  /* Menu preview */
+  .menu-preview { padding: 0 0 80px; }
+  .menu-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 48px; align-items: start; }
+  .menu-grid > div > p { margin-top: 16px; color: var(--ink-2); font-size: 18px; }
+  .menu-docket .desc { font-family: var(--sans); font-size: 15px; color: var(--ink-2); margin: -2px 0 10px 2ch; padding-left: 8px; }
+  @media (max-width: 900px) { .menu-grid { grid-template-columns: 1fr; gap: 24px; } }
+
+  /* Voices */
+  .voices { background: var(--docket); border-top: 1.5px solid var(--rule); border-bottom: 1.5px solid var(--rule); padding: 72px 0; }
+  .voice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  blockquote { margin: 0; font-size: clamp(24px, 3vw, 34px); font-weight: 500; line-height: 1.25; letter-spacing: -0.015em; text-wrap: balance; }
+  blockquote::before { content: "\201C"; color: var(--stamp); font-family: var(--mono); font-weight: 600; margin-right: 2px; }
+  .voice-grid cite { display: block; font-style: normal; font-family: var(--mono); font-size: 14px; color: var(--ink-2); margin-top: 18px; letter-spacing: 0.04em; }
+  .voice-photo { margin: 0; position: relative; }
+  .voice-photo img { width: 100%; height: 420px; object-fit: cover; border-radius: 6px; }
+  .voice-photo .stamp { position: absolute; left: 16px; bottom: 16px; }
+  @media (max-width: 900px) { .voice-grid { grid-template-columns: 1fr; gap: 28px; } .voice-photo img { height: 280px; } }
+
+  /* Visit */
+  .visit { padding: 80px 0; }
+  .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .visit-grid > div > p { margin-top: 16px; color: var(--ink-2); font-size: 18px; }
+  .addr { font-style: normal; font-family: var(--mono); font-size: 17px; line-height: 1.5; margin-top: 22px; }
+  .addr b { font-weight: 600; }
+  .hours .line { margin: 4px 0; }
+  .hours .line .lbl { text-transform: none; letter-spacing: 0; }
+  .hours .closed .amt { color: var(--ink-2); font-weight: 400; }
+  @media (max-width: 900px) { .visit-grid { grid-template-columns: 1fr; gap: 28px; } }
+  @media (max-width: 767px) { .visit { padding: 56px 0; } }
+
+  /* Footer stub */
+  .stub { position: relative; background: var(--band); color: var(--band-text); padding: 72px 0 40px; margin-top: 12px; }
+  .stub::before { content: ""; position: absolute; left: 0; right: 0; top: -12px; height: 12px; background: linear-gradient(135deg, transparent 50%, var(--band) 50%) 0 0 / 16px 12px repeat-x, linear-gradient(225deg, transparent 50%, var(--band) 50%) 0 0 / 16px 12px repeat-x; }
+  .stub a { color: var(--band-text); }
+  .stub a:hover { color: var(--stamp); }
+  .stub-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1.5px dashed rgba(246,241,231,.3); }
+  .stub h3 { font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--stamp); margin-bottom: 14px; }
+  .stub ul { list-style: none; margin: 0; padding: 0; }
+  .stub li { margin: 8px 0; font-size: 15px; }
+  .stub .brand { color: var(--band-text); font-size: 22px; }
+  .stub .about { color: var(--band-muted); font-size: 15px; margin-top: 12px; max-width: 34ch; }
+  .stub .bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; padding-top: 22px; font-family: var(--mono); font-size: 13px; color: var(--band-muted); }
+  .stub .ack { color: var(--band-muted); font-size: 14px; margin-top: 22px; max-width: 70ch; }
+  @media (max-width: 900px) { .stub-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .stub-grid { grid-template-columns: 1fr; gap: 28px; } }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CafeOrCoffeeShop",
+  "name": "Frapp & Capp",
+  "alternateName": "Frapp & Capp Coffee Shack",
+  "url": "https://frappandcapp.com/",
+  "telephone": "+611300998885",
+  "email": "tlcdisability@gmail.com",
+  "image": "https://frappandcapp.com/assets/og-home.jpg",
+  "logo": "https://frappandcapp.com/assets/icon-512.png",
+  "description": "Specialty coffee cafe and social enterprise in Bankstown NSW that trains and employs people with disability as baristas, at award wages.",
+  "address": { "@type": "PostalAddress", "streetAddress": "1 West Terrace", "addressLocality": "Bankstown", "addressRegion": "NSW", "postalCode": "2200", "addressCountry": "AU" },
+  "geo": { "@type": "GeoCoordinates", "latitude": -33.9188405, "longitude": 151.0369769 },
+  "openingHoursSpecification": [{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:30", "closes": "15:00" }],
+  "priceRange": "$",
+  "servesCuisine": "Coffee",
+  "hasMenu": "https://frappandcapp.com/menu/",
+  "sameAs": ["https://www.instagram.com/frappandcapp/", "https://www.facebook.com/TLCdisabilityservices/"],
+  "parentOrganization": { "@type": "Organization", "name": "TLC Disability Services", "url": "https://www.tenderlovingcaredisability.com.au/" },
+  "foundingDate": "2023-05-10"
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar">
+  <div class="wrap bar-in">
+    <a class="brand" href="/" aria-label="Frapp & Capp, home">
+      <img src="../../assets/logo-mark.webp" alt="" width="26" height="44">
+      <span>Frapp <span class="amp">&amp;</span> Capp</span>
+    </a>
+    <button class="navtoggle" aria-expanded="false" aria-controls="nav" id="navtoggle">Pages <span aria-hidden="true">&#9776;</span></button>
+    <nav class="nav" id="nav" aria-label="Site">
+      <a href="/" aria-current="page">Home</a>
+      <a href="/menu/">Menu</a>
+      <a href="/visit/">Visit</a>
+      <a href="/shop-beans/">Shop Beans</a>
+      <a href="/our-story/">Our Story</a>
+      <a href="/careers/">Careers</a>
+      <a href="/spin-win/">Spin &amp; Win</a>
+      <a class="cta" href="https://maps.google.com/?q=1+West+Terrace+Bankstown+NSW+2200" rel="noopener">Get directions</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" aria-labelledby="h1">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Specialty coffee, Bankstown NSW</p>
+        <h1 id="h1">Great coffee. Real careers. <span class="alt">Same docket.</span></h1>
+        <p class="lede">Every flat white poured at Frapp &amp; Capp is pulled by a barista building skills, confidence and a paycheck that's truly theirs. We make seriously good specialty coffee, and we happen to change lives while doing it.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="/menu/">See the menu</a>
+          <a class="btn" href="https://maps.google.com/?q=1+West+Terrace+Bankstown+NSW+2200" rel="noopener">Get directions</a>
+        </div>
+        <div class="hero-facts">
+          <span><b>1 West Terrace</b>, Bankstown</span>
+          <span><b>Mon to Fri</b> 9:30am to 3pm</span>
+          <span><a class="textlink" href="/careers/">Work with us</a></span>
+        </div>
+      </div>
+      <div class="hero-stage">
+        <figure class="hero-photo">
+          <img src="../../assets/photo-barista.webp" alt="A Frapp & Capp barista smiling behind the counter, hands on hips, beside the espresso machine" width="463" height="785" fetchpriority="high">
+          <span class="stamp live hero-stamp">Open weekdays</span>
+        </figure>
+        <div class="docket hero-docket print" aria-label="Sample docket">
+          <div class="hd" style="--i:0">Frapp &amp; Capp Coffee Shack</div>
+          <div class="sub" style="--i:1">1 West Terrace, Bankstown 2200</div>
+          <div class="sub" style="--i:2">Docket 0001 &middot; Mon to Fri, 9:30 to 3</div>
+          <hr class="rule" style="--i:3">
+          <div class="line" style="--i:4"><span class="q">1</span><span class="lbl">Flat white</span><span class="dots"></span><span class="amt">4.90</span></div>
+          <div class="line" style="--i:5"><span class="q">1</span><span class="lbl">Barista training</span><span class="dots"></span><span class="amt note">incl.</span></div>
+          <div class="line" style="--i:6"><span class="q">1</span><span class="lbl">Award wages</span><span class="dots"></span><span class="amt note">incl.</span></div>
+          <div class="line" style="--i:7"><span class="q">1</span><span class="lbl">Real career</span><span class="dots"></span><span class="amt note">incl.</span></div>
+          <hr class="rule" style="--i:8">
+          <div class="line total" style="--i:9"><span class="lbl">Total</span><span class="dots"></span><span class="amt">4.90</span></div>
+          <div class="fine" style="--i:10">and something bigger</div>
+          <div class="thanks" style="--i:11">Thank you. See you tomorrow.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="impact-h">
+    <div class="wrap band-grid">
+      <div>
+        <p class="eyebrow">Running total</p>
+        <div class="bignum" id="impact-h">5,070</div>
+        <p class="what">hours of paid, meaningful employment since we opened on West Terrace in May 2023.</p>
+        <p class="caveat">A conservative floor as at September 2026: five trading days a week, 9:30am to 3pm, counting one employee on shift. The real number is higher.</p>
+      </div>
+      <div>
+        <div class="line"><span class="lbl">Opened on West Terrace</span><span class="dots"></span><span class="amt">May 2023</span></div>
+        <div class="line"><span class="lbl">Wages for every barista</span><span class="dots"></span><span class="amt">Award</span></div>
+        <div class="line"><span class="lbl">Arabica, roasted and bagged in-house</span><span class="dots"></span><span class="amt">100%</span></div>
+        <div class="line"><span class="lbl">Prices for alt milk vs full cream</span><span class="dots"></span><span class="amt">Same</span></div>
+        <div class="line"><span class="lbl">Rush culture</span><span class="dots"></span><span class="amt">None</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="order" id="order" aria-labelledby="order-h">
+    <div class="wrap">
+      <div class="order-head">
+        <p class="eyebrow">Build your order</p>
+        <h2 id="order-h">What's on your docket?</h2>
+        <p>Pick what you'd order. The docket prints the total, and underneath it, every skill a Frapp &amp; Capp barista uses to make it. Each one is part of the training pathway they complete before their first customer shift.</p>
+      </div>
+      <div class="order-grid">
+        <ul class="menu-list" id="menu-list" aria-label="Menu items to add to your docket"></ul>
+        <div class="docket order-docket" aria-live="polite">
+          <div class="hd">Your docket</div>
+          <div class="sub">Frapp &amp; Capp &middot; Bankstown</div>
+          <hr class="rule">
+          <div id="docket-lines"></div>
+          <label class="altmilk"><input type="checkbox" id="altmilk"> Alt milk on milk drinks (oat, almond, soy) +0.80</label>
+          <hr class="rule">
+          <div class="line total"><span class="lbl">Total</span><span class="dots"></span><span class="amt" id="docket-total">4.90</span></div>
+          <hr class="rule">
+          <div class="hd" style="text-align:left">Skills on this docket</div>
+          <ul class="skills" id="docket-skills"></ul>
+          <p class="after">Trained, rostered and paid at award wages to make exactly this. <a href="/our-story/">How the pathway works</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pathway" aria-labelledby="path-h">
+    <div class="wrap path-grid">
+      <figure class="path-photo">
+        <img src="../../assets/photo-team.webp" alt="Two Frapp & Capp baristas at the espresso machine, one placing lids on takeaway cups" width="425" height="785" loading="lazy">
+        <figcaption>Eileen and Salim on the machine at West Terrace.</figcaption>
+      </figure>
+      <div>
+        <p class="eyebrow">The craft</p>
+        <h2 id="path-h">Trained on the tools that matter, not just the ones that are easy.</h2>
+        <p>Our baristas complete a full training pathway, grinding, dialling in, milk texture, front-of-house, before they ever pull a shot for a customer. It's a real job with real standards, because that's what respect looks like.</p>
+        <ol class="steps">
+          <li><div><h3>We start with the person</h3><p>Goals, support needs, and travel and money-management skills, sorted out before anyone touches an espresso machine.</p></div></li>
+          <li><div><h3>We train real barista skills</h3><p>Grinding, milk texture, front-of-house: a proper course, not a token placement.</p></div></li>
+          <li><div><h3>We employ at award wages</h3><p>A genuine job, on the roster, at the cafe on West Terrace, not a simulation of one.</p></div></li>
+        </ol>
+        <div class="actions"><a class="btn btn-ink" href="/careers/">Join the team</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-preview" aria-labelledby="menu-h">
+    <div class="wrap menu-grid">
+      <div>
+        <p class="eyebrow">On the menu</p>
+        <h2 id="menu-h">Small menu. Big craft.</h2>
+        <p>A tight, considered list, every item pulled, poured or plated by a Frapp &amp; Capp barista. Alt milk is 80 cents extra, and every milk is priced the same.</p>
+        <div class="actions"><a class="btn" href="/menu/">Full menu</a> <a class="btn" href="/shop-beans/">Beans to take home</a></div>
+      </div>
+      <div class="docket menu-docket">
+        <div class="hd">Today's picks</div>
+        <hr class="rule">
+        <div class="line"><span class="q">1</span><span class="lbl">Cappuccino</span><span class="dots"></span><span class="amt">4.90</span></div>
+        <p class="desc">Our house Arabica, silky microfoam, notes of strawberry.</p>
+        <div class="line"><span class="q">1</span><span class="lbl">Iced frappe</span><span class="dots"></span><span class="amt">5.90</span></div>
+        <p class="desc">Blended cold, built bold: the espresso equivalent of a high-five.</p>
+        <div class="line"><span class="q">1</span><span class="lbl">Toastie of the day</span><span class="dots"></span><span class="amt">Ask</span></div>
+        <p class="desc">Made fresh, gone fast. Ask what's on today.</p>
+        <div class="line"><span class="q">1</span><span class="lbl">House blend, 250g</span><span class="dots"></span><span class="amt">In store</span></div>
+        <p class="desc">100% Arabica, medium-dark. Strawberry up front, chocolate at the finish.</p>
+        <hr class="rule">
+        <div class="fine">Sizes S 4.90 / L 5.90 on all coffees. Decaf available.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="voices" aria-labelledby="voice-h">
+    <div class="wrap voice-grid">
+      <div>
+        <p class="eyebrow" id="voice-h">From the team</p>
+        <blockquote>Before this job I'd never stood behind an espresso machine. Now it's a skill that's mine, on a team that treats me like family.</blockquote>
+        <cite>Barista, Frapp &amp; Capp</cite>
+        <div class="actions"><a class="btn" href="/our-story/">Read our story</a></div>
+      </div>
+      <figure class="voice-photo">
+        <img src="../../assets/photo-latte.webp" alt="Hands holding a cappuccino as a rosetta is poured into the microfoam" width="780" height="720" loading="lazy">
+        <span class="stamp">Poured in Bankstown</span>
+      </figure>
+    </div>
+  </section>
+
+  <section class="visit" aria-labelledby="visit-h">
+    <div class="wrap visit-grid">
+      <div>
+        <p class="eyebrow">Visit</p>
+        <h2 id="visit-h">Come say hi. First coffee's a good excuse.</h2>
+        <p>Wide pathways, a lowered counter, clear menu boards and no rush culture. Sit, work, chat, or just watch the machine do its thing.</p>
+        <address class="addr">
+          <b>Frapp &amp; Capp Coffee Shack</b><br>
+          1 West Terrace<br>
+          Bankstown NSW 2200<br>
+          <a href="tel:+611300998885">1300 998 885</a><br>
+          <a href="mailto:tlcdisability@gmail.com">tlcdisability@gmail.com</a>
+        </address>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://maps.google.com/?q=1+West+Terrace+Bankstown+NSW+2200" rel="noopener">Get directions</a>
+          <a class="btn" href="https://www.instagram.com/frappandcapp/" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <div class="docket hours">
+        <div class="hd">Opening hours</div>
+        <div class="sub">Kitchen closes with the doors</div>
+        <hr class="rule">
+        <div class="line"><span class="lbl">Monday</span><span class="dots"></span><span class="amt">9:30am to 3pm</span></div>
+        <div class="line"><span class="lbl">Tuesday</span><span class="dots"></span><span class="amt">9:30am to 3pm</span></div>
+        <div class="line"><span class="lbl">Wednesday</span><span class="dots"></span><span class="amt">9:30am to 3pm</span></div>
+        <div class="line"><span class="lbl">Thursday</span><span class="dots"></span><span class="amt">9:30am to 3pm</span></div>
+        <div class="line"><span class="lbl">Friday</span><span class="dots"></span><span class="amt">9:30am to 3pm</span></div>
+        <div class="line closed"><span class="lbl">Saturday</span><span class="dots"></span><span class="amt">Closed</span></div>
+        <div class="line closed"><span class="lbl">Sunday</span><span class="dots"></span><span class="amt">Closed</span></div>
+        <hr class="rule">
+        <div class="fine">Public holidays: closed. Check Instagram for one-off changes.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="stub">
+  <div class="wrap">
+    <div class="stub-grid">
+      <div>
+        <a class="brand" href="/" aria-label="Frapp & Capp, home"><span>Frapp <span class="amp">&amp;</span> Capp</span></a>
+        <p class="about">Specialty coffee, roasted and poured by a team building real careers. A social enterprise of <a href="https://www.tenderlovingcaredisability.com.au/" rel="noopener">TLC Disability Services</a>.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="/menu/">Menu</a></li>
+          <li><a href="/shop-beans/">Shop Beans</a></li>
+          <li><a href="/our-story/">Our Story</a></li>
+          <li><a href="/careers/">Careers</a></li>
+          <li><a href="/spin-win/">Spin &amp; Win</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Visit</h3>
+        <ul>
+          <li><a href="https://maps.google.com/?q=1+West+Terrace+Bankstown+NSW+2200" rel="noopener">1 West Terrace, Bankstown NSW 2200</a></li>
+          <li>Mon to Fri, 9:30am to 3pm</li>
+          <li><a href="tel:+611300998885">1300 998 885</a></li>
+          <li><a href="mailto:tlcdisability@gmail.com">tlcdisability@gmail.com</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Follow</h3>
+        <ul>
+          <li><a href="https://www.instagram.com/frappandcapp/" rel="noopener">Instagram, @frappandcapp</a></li>
+          <li><a href="https://www.facebook.com/TLCdisabilityservices/" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.youtube.com/watch?v=02dQXzPiK3c" rel="noopener">Watch the Helping Hands feature</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="ack">Frapp &amp; Capp operates on the lands of the Darug and Eora peoples. We pay our respects to Elders past and present. [Confirm wording with TLC.]</p>
+    <div class="bottom">
+      <span>&copy; 2026 TLC Disability Services. Frapp &amp; Capp Coffee Shack.</span>
+      <span>Docket 0001 &middot; Printed in Bankstown</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Nav toggle
+  var t = document.getElementById('navtoggle'), n = document.getElementById('nav');
+  t.addEventListener('click', function () {
+    var open = n.classList.toggle('open');
+    t.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && n.classList.contains('open')) { n.classList.remove('open'); t.setAttribute('aria-expanded', 'false'); t.focus(); } });
+
+  // Build your order
+  var ITEMS = [
+    { g: 'Coffee', id: 'fw', name: 'Flat White', price: 4.90, sk: ['espresso', 'milk'] },
+    { id: 'cap', name: 'Cappuccino', price: 4.90, sk: ['espresso', 'milk'] },
+    { id: 'lb', name: 'Long Black', price: 4.90, sk: ['espresso'] },
+    { id: 'pic', name: 'Piccolo', price: 3.90, sk: ['espresso', 'milk'] },
+    { id: 'fr', name: 'Iced Frappe', price: 5.90, sk: ['espresso', 'blend'] },
+    { g: 'Not coffee', id: 'chai', name: 'Chai Latte', price: 4.90, sk: ['milk'] },
+    { id: 'hc', name: 'Hot Chocolate', price: 4.90, sk: ['milk'] },
+    { id: 'eb', name: 'English Breakfast tea', price: 4.00, sk: ['steep'] },
+    { g: 'Food', id: 'toast', name: 'Toastie of the Day', price: null, note: 'Ask what’s on today', sk: ['food'] }
+  ];
+  var SKILLS = { espresso: ['Grind and dose', 'Dial in the shot'], milk: ['Texture the milk', 'Pour'], blend: ['Build and blend'], steep: ['Steep and time'], food: ['Prep and plate'] };
+  var qty = { fw: 1 };
+  var list = document.getElementById('menu-list'), lines = document.getElementById('docket-lines'), total = document.getElementById('docket-total'), skills = document.getElementById('docket-skills'), alt = document.getElementById('altmilk');
+  function money(v) { return v.toFixed(2); }
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+  function renderList() {
+    var h = '';
+    ITEMS.forEach(function (it) {
+      if (it.g) h += '<li class="group">' + esc(it.g) + '</li>';
+      h += '<li class="item"><span class="nm">' + esc(it.name) + (it.note ? '<small>' + esc(it.note) + '</small>' : '') + '</span>' +
+        '<span class="pr">' + (it.price === null ? 'Ask' : money(it.price)) + '</span>' +
+        '<span class="qty"><button type="button" data-id="' + it.id + '" data-d="-1" aria-label="Remove one ' + esc(it.name) + '">&minus;</button>' +
+        '<output id="q-' + it.id + '" aria-label="' + esc(it.name) + ' quantity">' + (qty[it.id] || 0) + '</output>' +
+        '<button type="button" data-id="' + it.id + '" data-d="1" aria-label="Add one ' + esc(it.name) + '">+</button></span></li>';
+    });
+    list.innerHTML = h;
+  }
+  function renderDocket() {
+    var h = '', sum = 0, milkQty = 0, set = {}, any = false;
+    ITEMS.forEach(function (it) {
+      var q = qty[it.id] || 0; if (!q) return; any = true;
+      var amt = it.price === null ? 'Ask' : money(it.price * q);
+      if (it.price !== null) sum += it.price * q;
+      if (it.sk.indexOf('milk') > -1) milkQty += q;
+      it.sk.forEach(function (k) { SKILLS[k].forEach(function (s) { set[s] = true; }); });
+      h += '<div class="line"><span class="q">' + q + '</span><span class="lbl">' + esc(it.name) + '</span><span class="dots"></span><span class="amt">' + amt + '</span></div>';
+    });
+    if (alt.checked && milkQty) { sum += 0.8 * milkQty; h += '<div class="line"><span class="q">' + milkQty + '</span><span class="lbl">Alt milk</span><span class="dots"></span><span class="amt">' + money(0.8 * milkQty) + '</span></div>'; }
+    if (!any) h = '<div class="line empty"><span class="lbl">Nothing yet. Add something.</span></div>';
+    lines.innerHTML = h;
+    total.textContent = money(sum);
+    var sh = '';
+    Object.keys(set).forEach(function (s) { sh += '<li>' + esc(s) + '</li>'; });
+    sh += '<li class="base">Front of house: greet, take the order, make change</li>';
+    skills.innerHTML = sh;
+  }
+  list.addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    var id = b.getAttribute('data-id'), d = parseInt(b.getAttribute('data-d'), 10);
+    qty[id] = Math.max(0, Math.min(9, (qty[id] || 0) + d));
+    document.getElementById('q-' + id).textContent = qty[id];
+    renderDocket();
+  });
+  alt.addEventListener('change', renderDocket);
+  renderList(); renderDocket();
+})();
+</script>
+</body>
+</html>
